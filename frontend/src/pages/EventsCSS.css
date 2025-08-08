@@ -1,0 +1,51 @@
+/* Add this new CSS to your main stylesheet and remove the old one. */
+
+/* Keyframes to animate the stars scrolling vertically */
+@keyframes animateStars {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    /* Move stars up the screen. The distance should be the height of the stars container. */
+    transform: translateY(-2000px);
+  }
+}
+
+/* The main container class that will have the black background */
+.black-star-bg {
+  background-color: #000;
+  position: relative; /* This is crucial for positioning the stars */
+  overflow: hidden;   /* This hides the stars when they move outside the container */
+}
+
+/* This pseudo-element creates the star layers. We use multiple radial-gradients
+ for different star sizes to create a parallax/depth effect.
+*/
+.black-star-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2000px; /* Make the starfield taller than the viewport to allow for animation */
+  z-index: 0; /* Place the stars behind the main content */
+
+  /* A pattern of white dots (stars) on a transparent background */
+  background-image: 
+    radial-gradient(1px, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(1.5px, rgba(255, 255, 255, 0.5), transparent);
+  
+  /* Different sizes create a parallax effect */
+  background-size: 60px 60px, 110px 110px;
+  
+  /* Apply the slow scrolling animation */
+  animation: animateStars 100s linear infinite;
+}
+
+/* This ensures your main content (the <main> tag) sits on top of the
+  starry background, which is on the ::before pseudo-element.
+*/
+.black-star-bg > main {
+    position: relative;
+    z-index: 1;
+}
