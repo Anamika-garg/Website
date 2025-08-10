@@ -154,7 +154,7 @@ export default function Teams() {
   // Enhanced background with multiple layers
   const BackgroundPattern = () => (
     <div className="absolute inset-0 z-0 overflow-hidden">
-      <div className="absolute inset-0 bg-slate-950"></div>
+      <div className="absolute inset-0 bg-black"></div>
       <div className="absolute inset-0 z-10 opacity-20" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, #a3a3a3 1px, transparent 0)',
         backgroundSize: '1.5rem 1.5rem'
