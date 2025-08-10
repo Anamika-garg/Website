@@ -152,7 +152,7 @@ const Timeline = () => {
         "link": "https://www.instagram.com/p/DHp9mHdtYz7/",
         "imageUrl": "https://res.cloudinary.com/dalgvlhes/image/upload/v1754845980/Screenshot_2025-08-10_224238_vfubi8.png",
         "subtitle": "AM Hacks 2025 – The Ultimate Web3 Hackathon",
-        "description": "Whether you're coding from the frontlines or strategizing from afar, the challenge remains the same: Innovate. Compete. Conquer. 💪🔥"
+        "description": "AM Hacks 2025 at IGDTUW brought together innovators and problem-solvers for a high-energy hackathon, with hands-on coding, expert mentoring, intense challenges, and networking over ideas, snacks, and swag"
       },
       {
         "date": "12 FEBRUARY 2025",
