@@ -9,6 +9,7 @@ import SponsorPage from "./components/SponsorPage";
 import AuthPage from "./components/AuthPage";
 import Events from "./pages/Events";
 import Teams from "./pages/Teams";
+import Docs from "./pages/Docs";
 
 
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="login" element={<AuthPage />} />
           <Route path="events" element={<Events />} />
           <Route path="team" element={<Teams />} />
+          <Route path="docs" element={<Docs />} />
 
           
         </Route>
