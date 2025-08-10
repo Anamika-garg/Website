@@ -258,12 +258,12 @@ export default function Docs() {
 
   return (
     <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden">
-      <AnimatedBackground />
-      <main className="relative z-10 container mx-auto px-4 py-16 md:py-24">
+      {/* <AnimatedBackground /> */}
+      <main className="relative z-10 container mx-auto px-4 py-16 md:py-24 mt-16">
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-yellow-500">
-              Web3 Learning Nexus
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500 text-2xl">
+              Web3 Learning
             </span>
           </h1>
           <p className="text-md md:text-lg text-gray-400 max-w-2xl mx-auto">

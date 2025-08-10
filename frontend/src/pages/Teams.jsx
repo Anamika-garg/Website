@@ -4,14 +4,20 @@ import React, { useState, useMemo, useRef } from 'react';
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 
 // --- TEAM DATA ---
-// A single, clean data source for all team members. Easy to update and manage.
+// A single, clean data source for all team members (duplicates removed).
 const teamData = [
   // Core Team
   { id: 1, name: 'Prerana Arya', position: 'President', team: 'Core', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695670256/WhatsApp_Image_2025-03-25_at_12.10.20_AM_smxbpd.jpg', socials: { linkedin: 'https://www.linkedin.com/in/prerana-arya-84b020283/', twitter: 'https://x.com/@PreranaSays', instagram: 'https://instagram.com/11prer.a.na/' }},
   { id: 2, name: 'Sonasha Choudhary', position: 'The General Secretary', team: 'Core', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717859643/IMG_20240529_004615_328_gf6l5g.jpg', socials: { linkedin: 'https://www.linkedin.com/in/sonasha-choudhary-5a9274298', twitter: 'https://twitter.com/Sonasha99', instagram: 'https://www.instagram.com/sonashaaa_08/' }},
   { id: 3, name: 'Palak', position: 'Vice President', team: 'Core', imageUrl: 'https://res.cloudinary.com/dzwfmydmx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695670259/Asset_Mantle/IMG_20230921_135918_jfazmg.jpg', socials: { linkedin: 'https://www.linkedin.com/in/palak-bansal-3b6666283', twitter: 'https://twitter.com/palakbansl26', instagram: 'https://instagram.com/palak_16876' }},
   { id: 4, name: 'Anaya', position: 'Vice President', team: 'Core', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717859643/picture_vtb8hj.jpg', socials: { linkedin: 'https://www.linkedin.com/in/anaya-jain-4a5715288', twitter: 'https://twitter.com/AnayaJa48981116', instagram: 'https://www.instagram.com/10.anayajain' }},
-
+  
+  // Technical Team
+  { id: 62, name: 'Manya', position: 'Lead', team: 'Technical', imageUrl: 'https://res.cloudinary.com/duptmanu9/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717849294/Profile-Manya_xf4ehi.jpg', socials: { linkedin: 'https://www.linkedin.com/in/manya35', twitter: 'https://twitter.com/hi_manya_', instagram: 'https://www.instagram.com/simpformanya/' }},
+  { id: 63, name: 'Priya Verma', position: 'Lead', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dzwfmydmx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695670585/Asset_Mantle/priya_eu7avc.jpg', socials: { linkedin: 'https://www.linkedin.com/in/priya-verma-9668b4291/', twitter: 'https://x.com/PriyaVe93285977', instagram: 'https://www.instagram.com/_.priyavermaa' }},
+  { id: 64, name: 'Anamika Garg', position: 'Core', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717850875//WhatsApp_Image_2025-03-24_at_9.50.54_PM_u4pjxg.jpg', socials: { linkedin: 'https://www.linkedin.com/in/anamika-garg-aa14a5300/', twitter: 'https://x.com/AnamikaGarg29', instagram: 'https://instagram.com/akimana_fr' }},
+  { id: 65, name: 'Bhumi Gupta', position: 'Core', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717850875/IMG_20240316_182633_011_bi9lm9.jpg', socials: { linkedin: 'http://www.linkedin.com/in/guptabhumi2005', twitter: 'https://x.com/BhumiGupta81010', instagram: 'https://instagram.com/spk2bhumi' }},
+  
   // Event Management Team
   { id: 15, name: 'Ridhima Choudhary', position: 'Lead', team: 'Events', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1742915747/ridhima_rzc5go.jpg', socials: { linkedin: 'https://www.linkedin.com/in/ridhima-choudhary-774a8b287', twitter: '#', instagram: 'https://instagram.com/rridhimaaaa' }},
   { id: 16, name: 'Deepika', position: 'Lead', team: 'Events', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1742915747/deepika_ynjfow.jpg', socials: { linkedin: 'https://www.linkedin.com/in/deepika-3903a5288', twitter: 'https://x.com/@frDeepika', instagram: 'https://instagram.com/deepika._.919' }},
@@ -44,14 +50,6 @@ const teamData = [
   { id: 58, name: 'Akshita', position: 'Core', team: 'Outreach', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695672367/akshita_oo3r39.jpg', socials: { linkedin: 'https://www.linkedin.com/in/akshita-tanwar-939a04321', twitter: 'https://x.com/Akshita47246470', instagram: 'https://www.instagram.com/akshita.t9' }},
   { id: 59, name: 'Anupriya', position: 'Core', team: 'Outreach', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1742916431/20240918_233205_b4d9lm.jpg', socials: { linkedin: 'https://www.linkedin.com/in/anupriya-7a8584322', twitter: 'https://x.com/Anu_heree', instagram: 'https://www.instagram.com/anu.heree' }},
   { id: 61, name: 'Lavanya Arora', position: 'Coordinator', team: 'Outreach', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695672367/ProfilePic_tlkcwj.jpg', socials: { linkedin: 'https://www.linkedin.com/in/lavanya-arora-757412320', twitter: '#', instagram: 'https://www.instagram.com/its_lavanya_749' }},
-
-    
-  // Technical Team
-  { id: 62, name: 'Manya', position: 'Lead', team: 'Technical', imageUrl: 'https://res.cloudinary.com/duptmanu9/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717849294/Profile-Manya_xf4ehi.jpg', socials: { linkedin: 'https://www.linkedin.com/in/manya35', twitter: 'https://twitter.com/hi_manya_', instagram: 'https://www.instagram.com/simpformanya/' }},
-  { id: 63, name: 'Priya Verma', position: 'Lead', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dzwfmydmx/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1695670585/Asset_Mantle/priya_eu7avc.jpg', socials: { linkedin: 'https://www.linkedin.com/in/priya-verma-9668b4291/', twitter: 'https://x.com/PriyaVe93285977', instagram: 'https://www.instagram.com/_.priyavermaa' }},
-  { id: 64, name: 'Anamika Garg', position: 'Core', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717850875//WhatsApp_Image_2025-03-24_at_9.50.54_PM_u4pjxg.jpg', socials: { linkedin: 'https://www.linkedin.com/in/anamika-garg-aa14a5300/', twitter: 'https://x.com/AnamikaGarg29', instagram: 'https://instagram.com/akimana_fr' }},
-  { id: 65, name: 'Bhumi Gupta', position: 'Core', team: 'Technical', imageUrl: 'https://res.cloudinary.com/dalgvlhes/image/upload/ar_1:1,b_rgb:ffffff,bo_12px_solid_rgb:f2af13,c_fill,g_auto,r_max,w_1000/v1717850875/IMG_20240316_182633_011_bi9lm9.jpg', socials: { linkedin: 'http://www.linkedin.com/in/guptabhumi2005', twitter: 'https://x.com/BhumiGupta81010', instagram: 'https://instagram.com/spk2bhumi' }},
-  
 ];
 
 // --- HELPER FUNCTION to group team members by their position ---
@@ -138,7 +136,7 @@ export default function Teams() {
 
   const filteredTeam = useMemo(() => teamData.filter(member => member.team === activeTab), [activeTab]);
   const groupedTeam = groupTeamByPosition(filteredTeam);
-  
+
   const positionHierarchy = ['President', 'The General Secretary', 'Vice President', 'Lead', 'Core', 'Coordinator'];
 
   const positionOrder = useMemo(() => {
@@ -168,7 +166,7 @@ export default function Teams() {
       <BackgroundPattern />
       <div className="relative z-10 container mx-auto px-4 py-16 sm:py-24">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-white to-amber-200">
+          <h1 className="text-5xl md:text-6xl font-extrabold mt-16 tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 to-amber-500">
             Meet The Team
           </h1>
           <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
@@ -176,16 +174,16 @@ export default function Teams() {
           </p>
         </div>
 
-        {/* Tab Navigation */}
-        <div className="flex justify-center mb-12 overflow-x-auto pb-4 -mx-4 px-4">
-          <div className="flex flex-nowrap rounded-lg p-1 bg-slate-900/70 backdrop-blur-sm border border-slate-800">
+        {/* --- MODIFIED: Responsive Tab Navigation --- */}
+        <div className="flex justify-center mb-12">
+          <div className="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-slate-900/70 backdrop-blur-sm border border-slate-800">
             {teams.map(team => (
               <button
                 key={team}
                 onClick={() => setActiveTab(team)}
-                className={`flex-shrink-0 px-4 sm:px-6 py-2.5 text-sm sm:text-base font-medium rounded-md transition-all duration-300 relative whitespace-nowrap ${
+                className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap ${
                   activeTab === team
-                    ? 'text-white bg-[#F6B433] shadow-md shadow-amber-600/20'
+                    ? 'text-slate-900 bg-[#F6B433] shadow-md shadow-amber-500/30'
                     : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
                 }`}
               >
