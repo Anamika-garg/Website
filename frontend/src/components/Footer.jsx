@@ -3,6 +3,7 @@ import { FaXTwitter, FaDiscord, FaInstagram, FaLinkedin } from "react-icons/fa6"
 import { BsFillSendFill } from "react-icons/bs";
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import { FaWhatsapp } from 'react-icons/fa';
 
 // --- Animation Variants ---
 const footerVariants = {
@@ -48,10 +49,10 @@ const Footer = () => {
                             The first Web3-based club at IGDTUW.
                         </p>
                         <div className="flex space-x-4">
-                            <a href='https://twitter.com' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaXTwitter size={20} /></a>
-                            <a href='https://discord.com' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaDiscord size={20} /></a>
-                            <a href='https://linkedin.com' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaLinkedin size={20} /></a>
-                            <a href='https://instagram.com' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaInstagram size={20} /></a>
+                            <a href='https://x.com/AM_igdtuw' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaXTwitter size={20} /></a>
+                            <a href='https://chat.whatsapp.com/Cp0ppTJBmOS4vgDze8XMPq' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaWhatsapp size={20} /></a>
+                            <a href='https://www.linkedin.com/in/assetmerkle-igdtuw-a1427325a/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaLinkedin size={20} /></a>
+                            <a href='https://www.instagram.com/assetmerkle.igdtuw/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaInstagram size={20} /></a>
                         </div>
                     </motion.div>
 

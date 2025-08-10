@@ -148,6 +148,14 @@ const Timeline = () => {
     const events = [
       {
         "date": "12 FEBRUARY 2025",
+        "title": "AM Hacks",
+        "link": "https://www.instagram.com/p/DHp9mHdtYz7/",
+        "imageUrl": "https://res.cloudinary.com/dalgvlhes/image/upload/v1754845980/Screenshot_2025-08-10_224238_vfubi8.png",
+        "subtitle": "AM Hacks 2025 – The Ultimate Web3 Hackathon",
+        "description": "Whether you're coding from the frontlines or strategizing from afar, the challenge remains the same: Innovate. Compete. Conquer. 💪🔥"
+      },
+      {
+        "date": "12 FEBRUARY 2025",
         "title": "The Algorand Meetup",
         "link": "https://www.instagram.com/p/DFsyeoxyLfp/",
         "imageUrl": "https://res.cloudinary.com/dalgvlhes/image/upload/v1742829285/Screenshot_2025-03-24_204331_nmf72w.png",

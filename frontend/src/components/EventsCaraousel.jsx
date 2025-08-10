@@ -15,112 +15,112 @@ const cards = [
       "title": "Orientation and Treasure Hunt",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1688802647/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_300_mgqx8x.png",
       "content": "We conducted out first fun event ‘Treasure Hunt’, with over fifteen teams participating following the orientation💰💰.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card2",
       "title": "Intro to Web3 and its Career Scope",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1688802647/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_302_pgrxxz.png",
       "content": "AssetMerkle IGDTUW in collaboration with @ecell_igdtuw 📂bring to you an amazing session on \"Intro To Web3 and Career Scope\" with Sanket Agarwal.🤩🤩",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card3",
       "title": "BFF Hackathon",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1688802646/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_303_cpvgip.png",
       "content": "Unleashing the digital creativity at the ultimate hackathon showdown💥🚀 We dived into the world where tech meets enthusiasm: BFF Hackathon organised by Assetmerkle IGDTUW and AUV-DTU👾",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card4",
       "title": "FastN Session",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1698596897/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_315_hcwl6o.png",
       "content": "Assetmerkle IGDTUW collaborated with FastN and conducted a Roadshow. The roadshow consisted of enhancing the coding skills using fastN stack to build",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card5",
       "title": "Web3 Cohort",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1698598435/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_318_sjecxi.png",
       "content": "AssetMerkle IGDTUW has an ongoing mentorship cohort on web3 - we had started from scratch - right from the beginning of with Javascript, frontend development with ReactJs",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card6",
       "title": "Ideathon",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1698597655/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_316_ilf1ht.png",
       "content": "As a part of the cohort, the mentees have divided themselves among groups of three-four and have worked on the idea of building their own dApp. The ideathon was a",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card7",
       "title": "Introduction to Crypto V/S Blockchain and Altcoins",
       "image": "https://res.cloudinary.com/djv5kc7as/image/upload/v1698598489/Asset%20Mantle%20-%20Team%202023/Events/Screenshot_317_nle6lt.png",
       "content": "The event exploring the intricate relationship between crypto, blockchain technology, and altcoins was a remarkable success, shedding light on the dynamic and evolving",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card8",
       "title": "HackHive, a 36-hour hackathon adventure",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/hack-hive_b3tszn.png",
       "content": "HackHive, a 36-hour in-person hackathon in Indore by Techhunterssss, supported by MLH, was a tech extravaganza from October 27th to 29th. Tech enthusiasts made their bytes count in this inclusive event.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card9",
       "title": "Emerging Technologies Workshop",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/AM-GDSC_o0c14y.png",
       "content": "'Emerging Technologies: Pioneering the Digital Frontier' was a two-day tech extravaganza on October 26 & 27, 2023. Participants delved into the latest in web3, cloud-native architectures, blockchain, AI, and more, engaging with experts and witnessing live demos.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card10",
       "title": "Chain Pe Charcha",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/chainpecharcha_gm0ysz.png",
       "content": "AssetMerkle took a dive into the world of Web3 technologies with an exciting Twitter Spaces podcast. We unraveled the secrets of the decentralized web, featuring insights and discussions about the future of technology and cyberspace. If you were passionate about sharing your insights, we hope you joined us as a speaker.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card11",
       "title": "Deepdive into Blockchain & Crypto",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/blockchain_o4u0ok.png",
       "content": "AssetMerkle's insightful session, \"Deepdive into Blockchain & Crypto,\" with Grahil Khandelwal, Community Lead at Deepverse DAO, explored Blockchain intricacies, Crypto insights, and decentralized ecosystem futures.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card12",
       "title": "Build with Tezos",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/build-with-teszo_fj66i0.png",
       "content": "AssetMerkle and The Product House hosted 'Build with Tezos,' a hands-on workshop on Tezos Blockchain at IGDTUW.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card13",
       "title": "Careers in Web3",
       "image": "https://res.cloudinary.com/duptmanu9/image/upload/v1707140357/geetika-di_ktiuzk.png",
       "content": "Dived into \"Careers in Web3\" with Geetika Gupta, President of Assetmerkle IGDTUW, for insights into opportunities in the tech world. Participants learned to create their first crypto wallet.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card14",
       "title": "Fleek Deploy: Delhi",
       "image": "https://res.cloudinary.com/dlx9sj1pl/image/upload/v1712693959/Screenshot_2024-04-10_014915_nepofq.png",
       "content": "Explored cutting-edge tech, showcased transformative decentralized hosting & web management.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card15",
       "title": "Starknet X Assetmerkle",
       "image": "https://res.cloudinary.com/dlx9sj1pl/image/upload/v1712692992/Screenshot_2024-04-10_013236_q0xwi0.png",
       "content": "Hands-on Starknet session: Theory, advantages over Layer 2, architecture, account abstraction, and STARKs.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     },
     {
       "id": "card16",
       "title": "The Graph Workshop",
       "image": "https://res.cloudinary.com/dlx9sj1pl/image/upload/v1730999849/Screenshot_2024-11-07_224113_emm0uy.png",
       "content": "A beginner-friendly introduction to Web3 and The Graph. Dived into blockchain basics, learnt about subgraphs, and enjoyed exclusive swags, a GRT airdrop, and networking opportunities.",
-      "readMoreLink": "/event"
+      "readMoreLink": "/events"
     }
   ];
 

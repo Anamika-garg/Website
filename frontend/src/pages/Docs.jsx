@@ -262,7 +262,7 @@ export default function Docs() {
       <main className="relative z-10 container mx-auto px-4 py-16 md:py-24 mt-16">
         <header className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500 text-2xl">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500 text-5xl">
               Web3 Learning
             </span>
           </h1>
