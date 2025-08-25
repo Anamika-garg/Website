@@ -51,7 +51,7 @@ const Footer = () => {
                         <div className="flex space-x-4">
                             <a href='https://x.com/AM_igdtuw' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaXTwitter size={20} /></a>
                             <a href='https://chat.whatsapp.com/Cp0ppTJBmOS4vgDze8XMPq' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaWhatsapp size={20} /></a>
-                            <a href='https://www.linkedin.com/in/assetmerkle-igdtuw-a1427325a/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaLinkedin size={20} /></a>
+                            <a href='https://www.linkedin.com/in/assetmerkle-igdtuw-463560335/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaLinkedin size={20} /></a>
                             <a href='https://www.instagram.com/assetmerkle.igdtuw/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaInstagram size={20} /></a>
                         </div>
                     </motion.div>
