@@ -127,7 +127,7 @@ const Hero = () => {
                 <a href="https://twitter.com/AM_igdtuw" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#F6B433] transition-colors duration-300 text-3xl">
                   <FaXTwitter />
                 </a>
-                <a href="https://www.linkedin.com/company/asset-merkle/mycompany/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#F6B433] transition-colors duration-300 text-3xl">
+                <a href="https://www.linkedin.com/in/assetmerkle-igdtuw-463560335/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#F6B433] transition-colors duration-300 text-3xl">
                   <FaLinkedin />
                 </a>
               </motion.div>
