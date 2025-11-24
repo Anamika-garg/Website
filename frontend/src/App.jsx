@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-
 import FAQ from "./pages/FAQs";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
@@ -10,8 +9,7 @@ import AuthPage from "./components/AuthPage";
 import Events from "./pages/Events";
 import Teams from "./pages/Teams";
 import Docs from "./pages/Docs";
-
-
+import AMHacksPage from "./pages/AMHacksPage";
 
 function App() {
   return (
@@ -28,7 +26,8 @@ function App() {
           <Route path="team" element={<Teams />} />
           <Route path="docs" element={<Docs />} />
 
-          
+          {/*Fixed route */}
+          <Route path="amhacks" element={<AMHacksPage />} />
         </Route>
       </Routes>
     </Router>
