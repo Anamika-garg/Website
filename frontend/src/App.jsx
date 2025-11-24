@@ -10,6 +10,7 @@ import AuthPage from "./components/AuthPage";
 import Events from "./pages/Events";
 import Teams from "./pages/Teams";
 import Docs from "./pages/Docs";
+import AMHacks from "./pages/AMHacks";
 
 
 
@@ -27,6 +28,7 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="team" element={<Teams />} />
           <Route path="docs" element={<Docs />} />
+          <Route path="amhacks" element={<AMHacks />} />
 
           
         </Route>
