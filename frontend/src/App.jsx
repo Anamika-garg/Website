@@ -25,7 +25,7 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="team" element={<Teams />} />
           <Route path="docs" element={<Docs />} />
-          <Route path="amhacks" element={<AMHacks />} />
+          {/* <Route path="amhacks" element={<AMHacks />} /> */}
 
           {/*Fixed route */}
           <Route path="amhacks" element={<AMHacksPage />} />
