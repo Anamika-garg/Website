@@ -66,7 +66,7 @@ const Tagline = () => {
         
         {/* Event Date */}
         <div className="event-date">
-          <div className="date-icon">📅</div>
+          <div className="date-icon"></div>
           <p className="date-text">February 6-8, 2026</p>
         </div>
 

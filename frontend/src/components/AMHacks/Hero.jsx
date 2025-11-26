@@ -58,7 +58,7 @@ const AMHacks = () => {
       >
         <div className="absolute inset-0 bg-black/70 z-[1]"></div>
 
-        <div className="relative z-[2] min-h-screen flex items-center justify-center">
+        <div className="relative z-[2] min-h-[screen] flex items-center justify-center">
           <div className="container mx-auto px-4 py-16 sm:py-24">
             <motion.div
               className="text-center max-w-6xl mx-auto"
@@ -142,7 +142,8 @@ const AMHacks = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Register Now
+                  {/* Register Now */}
+                  Coming Soon
                 </motion.button>
 
                 <motion.button
@@ -173,7 +174,7 @@ const AMHacks = () => {
               <img
                 src={src}
                 alt=""
-                className="w-full h-64 object-cover hover:scale-105 transition-transform duration-500 "
+                className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500 "
               />
             </div>
           ))}

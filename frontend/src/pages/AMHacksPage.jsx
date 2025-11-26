@@ -11,13 +11,17 @@
 // export default AMHacksPage;
 
 import Tagline from "../components/AMHacks/Tagline";
+import AMHacks from "../components/AMHacks/Hero";
+import Sponsor from "../components/AMHacks/sponsor";
+import FAQs from "../components/AMHacks/faqs";
 
 const AMHacksPage = () => {
   return (
-    <div className="pt-24">
-      <div className="text-8xl min-h-[50vh] flex items-center justify-center font-black bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent animate-pulse text-center">
-        COMING SOON
-      </div>
+    <div className="top-[-90px] relative pt-24">
+      <AMHacks/>
+      <Sponsor/>
+      <Tagline/>
+      <FAQs/>
     </div>
   );
 };
