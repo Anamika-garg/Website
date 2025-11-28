@@ -77,7 +77,7 @@ const Testimonials = () => {
 
     const visibleTestimonials = getVisibleTestimonials();
     return (
-         <div className="min-h-screen bg-neutral-900 flex items-center justify-center px-4 py-16">
+         <div className="min-h-screen bg--900 flex items-center justify-center px-4 py-16">
       <div className="max-w-7xl w-full">
         <div className="text-center mb-16">
           <h2 className="text-5xl font-bold text-400 mb-2" style={{ color: "oklch(82.8% 0.189 84.429)" }}>
@@ -99,8 +99,8 @@ const Testimonials = () => {
               >
                 <div className={`rounded-3xl p-8 min-h-[400px] flex flex-col ${
                   testimonial.position === 'center'
-                    ? 'bg-neutral-800 border-2 border-400/40'
-                    : 'bg-neutral-800/60 border border-400/20'
+                    ? 'bg--800 border-2 border-400/40'
+                    : 'bg--800/60 border border-400/20'
                 }`} style={{ borderColor: "oklch(60% 0.189 84.429)" }}>
                   <div className="text-orange-400 text-5xl mb-4 font-serif">"</div>
                   
