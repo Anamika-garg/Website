@@ -14,7 +14,7 @@ import Tagline from "../components/AMHacks/Tagline";
 import AMHacks from "../components/AMHacks/Hero";
 import Sponsor from "../components/AMHacks/sponsor";
 import FAQs from "../components/AMHacks/faqs";
-import AMSponsi from "../components/AMSponsi";
+import AMSponsi from "../components/AMHacks/AMSponsi";
 
 const AMHacksPage = () => {
   return (
