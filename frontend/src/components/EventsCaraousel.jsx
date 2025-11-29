@@ -189,7 +189,7 @@ const EventsCaraousel = () => {
                            hover:border-yellow-400/50 hover:bg-black/30 hover:-translate-y-2"
               >
                 <div className="mb-6 overflow-hidden rounded-lg">
-                  <img src={card.image} alt={card.title} className='w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105' />
+                  <img src={card.image} alt={card.title} className='w-full h-48 object-contain transition-transform duration-300 group-hover:scale-105' />
                 </div>
                 
                 <h4 className="text-xl font-semibold mb-3 text-white">{card.title}</h4>
