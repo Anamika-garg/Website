@@ -16,6 +16,7 @@ import Sponsor from "../components/AMHacks/Sponsor";
 import FAQs from "../components/AMHacks/Faqs";
 import AMSponsi from "../components/AMHacks/AMSponsi";
 import Testimonials from "../components/AMHacks/Testimonials";
+
 const AMHacksPage = () => {
   return (
     <div className="top-[-90px] relative pt-24">
