@@ -22,8 +22,8 @@ const AMHacksPage = () => {
       <AMHacks/>
       <AMSponsi/>
       <Sponsor/>
-      <Testimonials/>
       <Tagline/>
+      <Testimonials/>
       <FAQs/>
     </div>
   );

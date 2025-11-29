@@ -59,7 +59,7 @@ const AMHacks = () => {
         <div className="absolute inset-0 bg-black/70 z-[1]"></div>
 
         <div className="relative z-[2] min-h-[screen] flex items-center justify-center">
-          <div className="container mx-auto px-4 py-16 sm:py-24">
+          <div className="container mx-auto px-4 py-16 sm:py-24 min-w-[90%] relative">
             <motion.div
               className="text-center max-w-6xl mx-auto"
               variants={staggerChildren}
@@ -67,7 +67,7 @@ const AMHacks = () => {
               animate="visible"
             >
               <motion.div variants={childVariants}>
-                <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6">
+                <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 mt-12">
                   <span className="bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
                     AM HACKS
                   </span>
