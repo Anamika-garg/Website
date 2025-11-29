@@ -13,7 +13,7 @@ const navItems = [
   { path: "/faq", label: "FAQ" },
   { path: "/docs", label: "Docs" },
   { path: "/amhacks", label: "AM Hacks" },
-  { path: "/profile", label: "Profile" },
+  { path: "/", label: "Profile" },
 ];
 
 const Navbar = () => {

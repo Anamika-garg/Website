@@ -17,6 +17,10 @@ const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [currentAnim, setCurrentAnim] = useState(0);
 
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: { opacity: 1, y: 0 },
+  };
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentAnim(prev => (prev + 1) % animationTypes.length);
@@ -92,14 +96,21 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
               >
                 <Link to={'login'}>
-                  <button
+                  {/* <button
                     onMouseEnter={onHover}
                     onMouseLeave={onHover}
                     className="px-8 py-3 bg-gradient-to-r from-[#F6B422] to-[#F6B433] rounded-lg font-semibold text-lg hover:from-cyan-400 hover:to-[#F6B433] transition-all duration-300 shadow-lg shadow-cyan-500/30 hover:shadow-cyan-500/50 flex items-center"
                   >
                     <VscAccount className="mr-2 text-xl" />
                     LOGIN/SIGN UP
-                  </button>
+                  </button> */}
+                  <motion.button
+                                  variants={itemVariants}
+                                  type="submit"
+                                  className="py-3 px-6 bg-gradient-to-r from-yellow-500 to-amber-600 rounded-lg font-semibold text-lg text-white font-semibold hover:scale-105 active:scale-100 transition-transform duration-300 shadow-lg shadow-yellow-500/20 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-black focus:ring-yellow-400"
+                                >
+                                  LOGIN / SIGN UP
+                                </motion.button>
                 </Link>
               </motion.div>
 
