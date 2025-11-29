@@ -12,7 +12,7 @@
 
 import Tagline from "../components/AMHacks/Tagline";
 import AMHacks from "../components/AMHacks/Hero";
-import Sponsor from "../components/AMHacks/Sponsor";
+import Sponsor from "../components/AMHacks/Sponsor.jsx";
 import FAQs from "../components/AMHacks/Faqs";
 import AMSponsi from "../components/AMHacks/AMSponsi";
 import Testimonials from "../components/AMHacks/Testimonials";
