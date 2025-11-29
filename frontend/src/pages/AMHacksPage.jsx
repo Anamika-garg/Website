@@ -13,7 +13,7 @@
 import Tagline from "../components/AMHacks/Tagline";
 import AMHacks from "../components/AMHacks/Hero";
 import Sponsor from "../components/AMHacks/sponsor";
-import FAQs from "../components/AMHacks/Faqs";
+import FAQs from "../components/AMHacks/faqs";
 import AMSponsi from "../components/AMHacks/AMSponsi";
 import Testimonials from "../components/AMHacks/Testimonials";
 
