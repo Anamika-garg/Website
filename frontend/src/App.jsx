@@ -10,10 +10,12 @@ import Events from "./pages/Events";
 import Teams from "./pages/Teams";
 import Docs from "./pages/Docs";
 import AMHacksPage from "./pages/AMHacksPage";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
     <Router>
+      <ScrollToTop/>
       <Routes>
         {/* Layout Route */}
         <Route path="/" element={<Layout />}>
