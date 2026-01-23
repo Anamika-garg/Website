@@ -142,8 +142,7 @@ const AMHacks = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  {/* Register Now */}
-                  Coming Soon
+                <a href="https://fluxor.io/hackathon/am-hacks-2026?utm_source=whatsapp&utm_medium=social&utm_campaign=hackathon_share&page=1">Register Now</a>
                 </motion.button>
 
                 <motion.button

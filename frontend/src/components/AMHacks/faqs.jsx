@@ -5,24 +5,40 @@ const FAQs = () => {
 
   const faqs = [
     {
-      question: "What is AM Hacks?",
-      answer: "AM Hacks is AssetMerkle's flagship Web3 hackathon that brings together innovators, developers, and blockchain enthusiasts to build cutting-edge decentralized applications. It's a 36-hour intensive coding marathon featuring mentorship, workshops, and exciting prizes."
+      question: "Who is eligible to participate?",
+      answer: "Students currently enrolled in undergraduate programs at recognised Indian colleges or universities are eligible. Accepted degrees include B.Tech, B.Sc, and B.C.A."
     },
     {
-      question: "Who can participate in AM Hacks?",
-      answer: "AM Hacks is open to all students, developers, and blockchain enthusiasts regardless of their experience level. Whether you're a beginner exploring Web3 or an experienced developer, you'll find exciting challenges and learning opportunities. Teams of 2-4 members are encouraged to participate."
+      question: "What is the team size requirement?",
+      answer: "Teams must consist of 2 to 5 members."
     },
     {
-      question: "What are the prize categories?",
-      answer: "AM Hacks offers multiple prize tracks including Best Overall Project, Best Web3 Innovation, Best DeFi Solution, Best NFT/Gaming Project, and sponsor-specific bounties. Total prize pool exceeds $10,000 with exclusive swag, mentorship opportunities, and networking with industry leaders."
+      question: "Can team members be from different colleges or specializations?",
+      answer: "Yes! Inter-college and inter-specialization teams are completely allowed."
     },
     {
-      question: "Do I need prior blockchain experience?",
-      answer: "No prior blockchain experience is required! AM Hacks welcomes participants of all skill levels. We provide pre-hackathon workshops, mentorship sessions, and resources to help you get started with Web3 development. Our mentors are available 24/7 during the event to guide you."
+      question: "Is physical presence required for the Final Round?",
+      answer: "Yes. A minimum of 3 team members must be physically present at the venue during the Final Round."
     },
     {
-      question: "What should I bring to the hackathon?",
-      answer: "Bring your laptop, chargers, and enthusiasm! We'll provide high-speed internet, power outlets, meals, snacks, and beverages throughout the event. Don't forget your student ID for registration and any hardware you plan to use for your project."
+      question: "Are proxies or impersonation allowed?",
+      answer: "No. Proxies, impersonation, or substitutions are strictly prohibited and will lead to immediate disqualification."
+    },
+    {
+      question: "Will accommodation or travel reimbursement be provided?",
+      answer: "No. Accommodation and travel expenses will not be covered by the organizers."
+    },
+    {
+      question: "What documents are required at the venue?",
+      answer: "Participants must carry: A valid college ID, and/or A government-issued ID (Aadhaar preferred) Entry will be denied if proper identification is not provided."
+    },
+    {
+      question: "Will there be coding or development time on the finale day?",
+      answer: "No. No coding or development time will be provided on the finale day."
+    },
+    {
+      question: "What should teams present to the judges?",
+      answer: "Teams must arrive with a fully pre-built project and be ready to demonstrate and explain it to the judges."
     }
   ];
 
