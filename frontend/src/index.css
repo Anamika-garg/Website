@@ -14,6 +14,10 @@ html,body{
   ); */
   background: #000;
 }
+html {
+  scroll-behavior: smooth;
+}
+
 
 .footer-link {
     @apply text-gray-400 transition-all duration-300;

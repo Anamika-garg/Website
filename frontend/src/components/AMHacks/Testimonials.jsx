@@ -1,10 +1,8 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const Testimonials = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-
+  // --- YOUR ORIGINAL DATA (UNCHANGED) ---
   const tests = [
     {
       id: 1,
@@ -74,14 +72,51 @@ const Testimonials = () => {
     }
   ];
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev === tests.length - 1 ? 0 : prev + 1));
-  }, [tests.length]);
+  // 1. Setup Clones for Infinite Loop
+  // We prepend the last 2 items and append the first 2 items to the array
+  const extendedTests = [...tests.slice(-2), ...tests, ...tests.slice(0, 2)];
+  
+  // Start at the first "real" item (index 2)
+  const [currentIndex, setCurrentIndex] = useState(2);
+  const [isTransitioning, setIsTransitioning] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const prevSlide = () => {
-    setCurrentIndex((prev) => (prev === 0 ? tests.length - 1 : prev - 1));
+  // 2. Navigation Logic
+  const handleNext = useCallback(() => {
+    if (!isTransitioning) return;
+    setCurrentIndex((prev) => prev + 1);
+  }, [isTransitioning]);
+
+  const handlePrev = () => {
+    if (!isTransitioning) return;
+    setCurrentIndex((prev) => prev - 1);
   };
 
+  // 3. Infinite "Teleport" Effect
+  // When we reach a clone, we jump back to the real version without animation
+  useEffect(() => {
+    if (currentIndex === extendedTests.length - 2) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(2);
+      }, 700); // 700 matches your duration
+    }
+    if (currentIndex === 1) {
+      setTimeout(() => {
+        setIsTransitioning(false);
+        setCurrentIndex(tests.length + 1);
+      }, 700);
+    }
+  }, [currentIndex, tests.length, extendedTests.length]);
+
+  // Turn transitions back on after the jump
+  useEffect(() => {
+    if (!isTransitioning) {
+      setTimeout(() => setIsTransitioning(true), 50);
+    }
+  }, [isTransitioning]);
+
+  // 4. Responsive Logic
   useEffect(() => {
     const checkScreen = () => setIsMobile(window.innerWidth < 1024);
     checkScreen();
@@ -89,10 +124,18 @@ const Testimonials = () => {
     return () => window.removeEventListener("resize", checkScreen);
   }, []);
 
+  // 5. Auto-play
   useEffect(() => {
-    const interval = setInterval(nextSlide, 4500);
+    const interval = setInterval(handleNext, 4500);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [handleNext]);
+
+  // Translate calculation
+  const getTranslateX = () => {
+    if (isMobile) return -(currentIndex * 100);
+    // Desktop: Shift left by index, then shift right by 1/3 to center the active card
+    return -(currentIndex * (100 / 3)) + (100 / 3);
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden">
@@ -112,29 +155,27 @@ const Testimonials = () => {
         </div>
 
         {/* Carousel Container */}
-        <div className="relative px-4">
+        <div className="relative">
           <div 
-            className="flex transition-transform duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+            className="flex"
             style={{
-              transform: isMobile 
-                ? `translateX(-${currentIndex * 100}%)` 
-                : `translateX(-${(currentIndex * (100 / 3)) - (100 / 3)}%)`
+              transform: `translateX(${getTranslateX()}%)`,
+              transition: isTransitioning ? "transform 700ms cubic-bezier(0.25, 1, 0.5, 1)" : "none"
             }}
           >
-            {tests.map((item, index) => {
+            {extendedTests.map((item, index) => {
               const isActive = index === currentIndex;
               return (
                 <div
-                  key={item.id}
-                  className="w-full lg:w-1/3 flex-shrink-0 px-3 transition-all duration-700"
-                  style={{ opacity: !isMobile && !isActive ? 0.4 : 1 }}
+                  key={`${item.id}-${index}`}
+                  className="w-full lg:w-1/3 flex-shrink-0 px-3"
                 >
                   <div
-                    className={`rounded-3xl p-8 min-h-[440px] flex flex-col border transition-transform duration-700 ${
-                      isActive ? "scale-100 lg:scale-110" : "scale-90 lg:scale-95"
+                    className={`rounded-3xl p-8 min-h-[440px] flex flex-col border transition-all duration-700 ${
+                      isActive ? "scale-100 opacity-100" : "scale-90 opacity-40 blur-[1px]"
                     }`}
                     style={{ 
-                      borderColor: "oklch(60% 0.189 84.429)",
+                      borderColor: "oklch(60% 0.189 84.429 / 0.3)",
                       backgroundColor: "oklch(25% 0.02 255.508 / 0.3)",
                       boxShadow: isActive ? "0 20px 40px -20px oklch(60% 0.189 84.429 / 0.4)" : "none"
                     }}
@@ -176,28 +217,32 @@ const Testimonials = () => {
           {/* Navigation Controls */}
           <div className="flex items-center justify-center gap-6 mt-16">
             <button 
-              onClick={prevSlide} 
+              onClick={handlePrev} 
               className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronLeft size={24} />
             </button>
 
             <div className="flex gap-3">
-              {tests.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentIndex(index)}
-                  className={`h-2 rounded-full transition-all duration-500 ${
-                    index === currentIndex
-                      ? "w-10 bg-orange-400"
-                      : "w-2 bg-gray-600 hover:bg-gray-400"
-                  }`}
-                />
-              ))}
+              {tests.map((_, index) => {
+                // Calculation to keep dots synced with the 6 real items
+                const realIndex = (currentIndex - 2 + tests.length) % tests.length;
+                return (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index + 2)}
+                    className={`h-2 rounded-full transition-all duration-500 ${
+                      index === realIndex
+                        ? "w-10 bg-orange-400"
+                        : "w-2 bg-gray-600 hover:bg-gray-400"
+                    }`}
+                  />
+                );
+              })}
             </div>
 
             <button 
-              onClick={nextSlide} 
+              onClick={handleNext} 
               className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white"
             >
               <ChevronRight size={24} />

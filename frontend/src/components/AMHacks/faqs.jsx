@@ -18,7 +18,7 @@ const FAQs = () => {
     },
     {
       question: "Is physical presence required for the Final Round?",
-      answer: "Yes. A minimum of 3 team members must be physically present at the venue during the Final Round."
+      answer: "Yes. A minimum of 2 team members must be physically present at the venue during the Final Round."
     },
     {
       question: "Are proxies or impersonation allowed?",
@@ -47,7 +47,7 @@ const FAQs = () => {
   };
 
   return (
-    <div className="min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8">
+    <div id='learn-more' className="min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-5xl sm:text-6xl font-bold text-center mb-16" style={{ color: '#F5A623' }}>
           Frequently Asked Questions

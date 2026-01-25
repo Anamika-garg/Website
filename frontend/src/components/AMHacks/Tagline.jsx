@@ -10,7 +10,7 @@ const Tagline = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-02-06T00:00:00').getTime();
+    const targetDate = new Date('2026-02-15T00:00:00').getTime();
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -61,13 +61,13 @@ const Tagline = () => {
         <div className="sparkle"></div>
         <div className="sparkle"></div>
         
-        <h1 className="title">AM Hacks <span>2026</span></h1>
+        <h1 className="title">AM Hacks 2.0 <span></span></h1>
         <p className="subtitle">Where Creativity Meets Technology, and Every Idea Becomes a Game Changing Innovation</p>
         
         {/* Event Date */}
         <div className="event-date">
           <div className="date-icon"></div>
-          <p className="date-text">February 6-8, 2026</p>
+          <p className="date-text">February 15-17, 2026</p>
         </div>
 
         {/* Countdown Timer */}
@@ -92,8 +92,11 @@ const Tagline = () => {
             <div className="countdown-label">Seconds</div>
           </div>
         </div>
-
-        <button className="coming-btn">Coming Soon!</button>
+        <button className='pt-5'>
+       <a className="coming-btn" href="https://fluxor.io/hackathon/am-hacks-2026?utm_source=whatsapp&utm_medium=social&utm_campaign=hackathon_share&page=1">
+         Register Now
+        </a>
+        </button>
       </div>
     </div>
   );

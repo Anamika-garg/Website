@@ -16,15 +16,17 @@ import Sponsor from "../components/AMHacks/sponsor";
 import FAQs from "../components/AMHacks/faqs";
 import AMSponsi from "../components/AMHacks/AMSponsi";
 import Testimonials from "../components/AMHacks/Testimonials";
+import Glimpses from "../components/AMHacks/Glimpses";
 
 const AMHacksPage = () => {
   return (
     <div className="top-[-90px] relative pt-24">
       <AMHacks/>
-      <AMSponsi/>
       <Sponsor/>
       <Tagline/>
       <Testimonials/>
+      <AMSponsi/>
+      <Glimpses/>
       <FAQs/>
     </div>
   );

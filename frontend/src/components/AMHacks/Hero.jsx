@@ -56,7 +56,7 @@ const AMHacks = () => {
           backgroundImage: `url(${heroBg})`,
         }}
       >
-        <div className="absolute inset-0 bg-black/70 z-[1]"></div>
+        <div className="absolute inset-0 bg-black/80 z-[1]"></div>
 
         <div className="relative z-[2] min-h-[screen] flex items-center justify-center">
           <div className="container mx-auto px-4 py-16 sm:py-24 min-w-[90%] relative">
@@ -69,7 +69,7 @@ const AMHacks = () => {
               <motion.div variants={childVariants}>
                 <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 mt-12">
                   <span className="bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
-                    AM HACKS
+                    AM HACKS 2.0
                   </span>
                 </h1>
                 <div className="h-2 w-32 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full mb-8"></div>
@@ -79,8 +79,7 @@ const AMHacks = () => {
                 className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed"
                 variants={childVariants}
               >
-                Where Innovation Meets Excellence. Join the ultimate hackathon
-                experience and build the future with cutting-edge technology.
+                After 1,000+ registrations and 80+ groundbreaking projects in our first edition, AM Hacks is back with its 2nd edition ready to raise the bar once again.
               </motion.p>
 
               {/* Stats */}
@@ -145,13 +144,15 @@ const AMHacks = () => {
                 <a href="https://fluxor.io/hackathon/am-hacks-2026?utm_source=whatsapp&utm_medium=social&utm_campaign=hackathon_share&page=1">Register Now</a>
                 </motion.button>
 
-                <motion.button
+                <motion.a
+                  href="#learn-more"
                   className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all duration-300"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+
                 >
                   Learn More
-                </motion.button>
+                </motion.a>
               </motion.div>
             </motion.div>
           </div>
@@ -159,7 +160,7 @@ const AMHacks = () => {
       </div>
 
       {/* GALLERY */}
-      <div className="container mx-auto px-4 py-20">
+      {/* <div className="container mx-auto px-4 py-20">
         <h2 className="text-4xl font-bold text-center text-white mb-12">
           EVENTS GALLERY
         </h2>
@@ -178,7 +179,7 @@ const AMHacks = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
     </>
   );
 };
