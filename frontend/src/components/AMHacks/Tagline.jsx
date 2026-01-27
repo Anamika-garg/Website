@@ -10,7 +10,8 @@ const Tagline = () => {
   });
 
   useEffect(() => {
-    const targetDate = new Date('2026-02-15T00:00:00').getTime();
+    const targetDate = new Date('2026-02-05T23:59:59').getTime();
+
 
     const updateCountdown = () => {
       const now = new Date().getTime();
@@ -67,8 +68,17 @@ const Tagline = () => {
         {/* Event Date */}
         <div className="event-date">
           <div className="date-icon"></div>
-          <p className="date-text">February 15-17, 2026</p>
+          <p className="date-text">
+            🚀🔥 <strong>AM HACKS 2.0</strong> is happening on{' '}
+            <strong>16th – 18th February 2026</strong> 💻⚡
+          </p>
         </div>
+
+
+         {/* Registration Deadline */}
+        <p className="registration-deadline">
+          ⏳ <strong>Last Day of Registration:</strong> 5th February 2026 — Register Fast!!
+        </p>
 
         {/* Countdown Timer */}
         <div className="countdown-container">

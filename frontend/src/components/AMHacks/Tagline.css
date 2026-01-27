@@ -69,7 +69,7 @@ body {
   border-right: none;
   backdrop-filter: blur(20px);
   border-radius: 0;
-  padding: 30px 50px;
+  padding: 40px 50px;
   text-align: center;
   position: relative;
   z-index: 10;
@@ -107,7 +107,7 @@ body {
 
 /* Subtitle */
 .subtitle {
-  margin-top: 10px;
+  margin-top: 15px;
   font-size: 0.85rem;
   font-weight: 600;
   color: #ffffff;
@@ -118,7 +118,7 @@ body {
 
 /* Event Date */
 .event-date {
-  margin-top: 12px;
+  margin-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,13 +147,36 @@ body {
   margin: 0;
 }
 
+/* Registration Deadline */
+.registration-deadline {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-align: center;
+  color: #FFB627;
+  text-shadow: 0 0 12px rgba(255, 182, 39, 0.7);
+  animation: deadlinePulse 1.5s ease-in-out infinite;
+  letter-spacing: 0.5px;
+}
+
+@keyframes deadlinePulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.85;
+  }
+}
+
 /* Countdown Container */
 .countdown-container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
-  margin-top: 15px;
+  margin-top: 25px;
   flex-wrap: wrap;
 }
 
@@ -228,7 +251,7 @@ body {
 
 /* Button */
 .coming-btn {
-  margin-top: 20px;
+  margin-top: 30px;
   padding: 10px 30px;
   background: linear-gradient(135deg, #E8A90E 0%, #9C7723 100%);
   border: 2px solid #E8A90E;
@@ -432,7 +455,7 @@ body {
 @media (max-width: 768px) {
   .tagline-box {
     width: 95%;
-    padding: 25px 18px;
+    padding: 30px 20px;
   }
   
   .title {
@@ -441,11 +464,21 @@ body {
   }
   
   .subtitle {
+    margin-top: 12px;
     font-size: 0.75rem;
+  }
+  
+  .event-date {
+    margin-top: 15px;
   }
   
   .date-text {
     font-size: 0.8rem;
+  }
+  
+  .registration-deadline {
+    margin-top: 15px;
+    font-size: 0.75rem;
   }
   
   .date-icon {
@@ -454,6 +487,7 @@ body {
   
   .countdown-container {
     gap: 5px;
+    margin-top: 20px;
   }
   
   .countdown-box {
@@ -474,6 +508,7 @@ body {
   }
   
   .coming-btn {
+    margin-top: 25px;
     font-size: 0.75rem;
     padding: 8px 22px;
   }
