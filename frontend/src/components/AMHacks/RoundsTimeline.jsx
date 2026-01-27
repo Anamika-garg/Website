@@ -143,13 +143,13 @@ const RoundItem = ({ round, index }) => {
   );
 };
 
-// Timeline component with shared background
+
 const RoundsTimeline = () => {
   const rounds = [
     {
       title: "Round 1: Screening Round",
       date: "5 February – 15 February 2026",
-      link: "https://forms.gle/wSUjhqgoFsC8LjuV7",
+      link: "https://docs.google.com/forms/d/e/1FAIpQLScjh9RvdVBn8tFOLM1e9fpXhFWE6DuJLkcgNKXAn2sjLWav3Q/viewform",
       description: `All participants must fill the Google Form.
 Submitted responses will be verified for accuracy and completeness.
 Entries with incorrect or incomplete information will be rejected.`,
@@ -160,8 +160,7 @@ Entries with incorrect or incomplete information will be rejected.`,
       date: "16 February – 17 February 2026",
       description: `Shortlisted teams will showcase their project progress
 and prototype in front of assigned mentors.
-Mentors will review solutions and provide feedback.
-Teams are expected to incorporate relevant changes.`,
+Mentors will review solutions and provide feedback.`,
     },
     {
       title: "Round 3: Final Judges’ Round",
@@ -200,4 +199,5 @@ Venue will be announced soon.`,
 };
 
 export default RoundsTimeline;
+
 
