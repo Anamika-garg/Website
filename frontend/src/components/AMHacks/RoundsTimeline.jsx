@@ -148,7 +148,7 @@ const RoundsTimeline = () => {
   const rounds = [
     {
       title: "Round 1: Screening Round",
-      date: "5 February – 14 February 2026",
+      date: "5 February – 15 February 2026",
       link: "https://forms.gle/wSUjhqgoFsC8LjuV7",
       description: `All participants must fill the Google Form.
 Submitted responses will be verified for accuracy and completeness.
@@ -157,7 +157,7 @@ Entries with incorrect or incomplete information will be rejected.`,
     {
       title: "Round 2: Mentorship & Evaluation Round",
       subtitle: "Online",
-      date: "15–16 February 2026",
+      date: "16 February – 17 February 2026",
       description: `Shortlisted teams will showcase their project progress
 and prototype in front of assigned mentors.
 Mentors will review solutions and provide feedback.
@@ -166,7 +166,7 @@ Teams are expected to incorporate relevant changes.`,
     {
       title: "Round 3: Final Judges’ Round",
       subtitle: "Offline",
-      date: "17 February 2026",
+      date: "18 February 2026",
       description: `Shortlisted teams will be invited to the on-site finale.
 Venue will be announced soon.`,
     },
@@ -200,3 +200,4 @@ Venue will be announced soon.`,
 };
 
 export default RoundsTimeline;
+
