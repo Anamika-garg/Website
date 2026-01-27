@@ -69,7 +69,7 @@ const AMHacks = () => {
               <motion.div variants={childVariants}>
                 <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6 mt-12">
                   <span className="bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
-                    AM HACKS
+                    AM HACKS 2.0
                   </span>
                 </h1>
                 <div className="h-2 w-32 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full mb-8"></div>
