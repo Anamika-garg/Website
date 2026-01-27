@@ -61,6 +61,7 @@ const Tagline = () => {
         <div className="sparkle"></div>
         <div className="sparkle"></div>
         
+        <h1 className="title">AM Hacks 2.0 <span>2026</span></h1>
         <h1 className="title">AM Hacks 2.0 <span></span></h1>
         <p className="subtitle">Where Creativity Meets Technology, and Every Idea Becomes a Game Changing Innovation</p>
         
