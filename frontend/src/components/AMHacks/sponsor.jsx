@@ -6,7 +6,7 @@ const themeData = [
     icon: <FaLightbulb />,
     title: "Open Innovation",
     description:
-      "AM Hacks 2026 follows an Open Innovation Track, empowering participants from any domain to ideate, design, and build impactful solutions aligned with their own interests—without being constrained by a predefined theme. All submissions will be evaluated by an expert jury panel."
+      "AM Hacks 2.0 2026 follows an Open Innovation Track, empowering participants from any domain to ideate, design, and build impactful solutions aligned with their own interests—without being constrained by a predefined theme. All submissions will be evaluated by an expert jury panel."
   },
   {
     icon: <FaCogs />,
@@ -31,7 +31,7 @@ const Sponsor = () => {
     <section className="bg-black text-white py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-14">
-          Themes
+          THEMES
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-items-center">

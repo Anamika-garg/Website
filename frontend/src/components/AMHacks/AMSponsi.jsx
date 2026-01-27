@@ -35,7 +35,7 @@ const AMSponsi = () => {
             const sponsors = [
               { name: 'Trae', logo: 'https://images.newsfilecorp.com/files/8457/267532_aeea8d38049d9acd_001full.jpg' },
               { name: 'Codecrafters', logo: 'https://codecrafters.io/images/logo.png' },
-              { name: 'Fluxor', logo: 'https://fluxor.io/icon.png' },
+              { name: 'Fluxor', logo: '/fluxor.svg' },
               ];
             
             return sponsors.map((sponsor, index) => (
