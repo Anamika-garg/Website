@@ -24,7 +24,7 @@ const AMSponsi = () => {
           variants={childVariants}
           className="text-4xl md:text-4xl font-bold text-center mb-12 text-white"
         >
-          Current Sponsors
+          SPONSERS
         </motion.h2>
       </motion.div>
       
@@ -33,9 +33,11 @@ const AMSponsi = () => {
           {(() => {
             // SPONSORS_ARRAY_START - Do not modify without coordination
             const sponsors = [
-              { name: 'Trae', logo: 'https://images.newsfilecorp.com/files/8457/267532_aeea8d38049d9acd_001full.jpg' },
-              { name: 'Codecrafters', logo: 'https://codecrafters.io/images/logo.png' },
-              { name: 'Fluxor', logo: '/fluxor.svg' },
+              { name: 'Trae', logo: 'https://images.newsfilecorp.com/files/8457/267532_aeea8d38049d9acd_001full.jpg', link: 'https://www.trae.ai/' },
+              { name: 'Codecrafters', logo: 'https://codecrafters.io/images/logo.png', link: 'https://codecrafters.io/' },
+              { name: 'Fluxor', logo: 'https://bnb.fluxor.io/fluxor.png', link: 'https://www.fluxor.io/en' },
+              { name:"Rise In", logo:"https://www.risein.com/logo-horizontal-dark.svg", link: 'https://www.risein.com/' },
+              { name: "Vyper", logo: "https://vyperlang.org/assets/images/vyper-logo.svg", link: "https://vyperlang.org/"}
               ];
             
             return sponsors.map((sponsor, index) => (
