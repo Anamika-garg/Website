@@ -42,6 +42,7 @@ const AMSponsi = () => {
             
             return sponsors.map((sponsor, index) => (
               <div key={index} className="flex-shrink-0">
+                <a href={sponsor.link} target="_blank">
                 <div 
                   className="w-90 h-40 flex flex-col items-center justify-center p-6 bg-white/5 rounded-2xl border border-white/10
                              transition-all duration-300 hover:bg-white/10 hover:scale-105"
@@ -50,7 +51,7 @@ const AMSponsi = () => {
                     <img
                       src={sponsor.logo}
                       alt={`${sponsor.name} logo`}
-                      className="max-w-full max-h-20 object-contain mb-4"
+                      className="max-w-full max-h-16 object-contain mb-4"
                     />
                   ) : (
                     <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-amber-500 rounded-lg flex items-center justify-center mb-4">
@@ -59,6 +60,7 @@ const AMSponsi = () => {
                   )}
                   <div className="text-[oklch(87.2%_0.01_258.338)] text-center text-sm font-medium">{sponsor.name}</div>
                 </div>
+                </a>
               </div>
             ));
           })()}
