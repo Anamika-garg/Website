@@ -146,7 +146,15 @@ const TimelineItem = ({ event, index }) => {
 // This component lays out the timeline events using the JSON data.
 const Timeline = () => {
     const events = [
-    
+  {
+    "date": "16-18 FEBURARY 2026",
+    "title": "AM Hacks 2.0",
+    "link": "https://www.instagram.com/reel/DWzcxwlE6s4/",
+    "imageUrl": "https://res.cloudinary.com/da2ycmeeo/image/upload/v1781519522/AM2.0_nz5v7v.jpg",
+    "subtitle": "The Next-Gen Web3 Hackathon",
+    "description": "AM Hacks 2.0 at IGDTUW united passionate innovators to build impactful solutions, learn from mentors, and tackle real-world challenges. The event fostered creativity, collaboration, and a spirit of innovation among participants."
+
+  },
   {
     "date": "4-6 APRIL 2025",
     "title": "AM Hacks",
