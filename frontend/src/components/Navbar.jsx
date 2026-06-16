@@ -12,6 +12,7 @@ const navItems = [
   { path: "/team", label: "Team" },
   { path: "/faq", label: "FAQ" },
   { path: "/docs", label: "Docs" },
+  { path: "/web3community", label: "Web3 Community" },
   { path: "/amhacks", label: "AM Hacks 2.0" },
   { path: "/", label: "Profile" },
 ];
