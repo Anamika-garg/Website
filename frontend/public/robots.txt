@@ -3,4 +3,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://assetmerkleigdtuw.vercel.app/sitemap.xml
+Sitemap: https://assetmerkle.vercel.app/sitemap.xml
