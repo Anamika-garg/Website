@@ -40,6 +40,18 @@ const resources = {
         link: "https://www.youtube.com/watch?v=0tZFQs7qBfQ"
       },
     ],
+    githubProjects: [
+      {
+        title: "Buildspace Projects",
+        description: "Hands-on beginner-friendly Web3 projects covering NFTs, DAOs, dApps, and smart contract development.",
+        link: "https://github.com/buildspace/buildspace-projects"
+      },
+      {
+        title: "Scaffold-ETH 2",
+        description: "A modern Ethereum development toolkit for building and deploying full-stack decentralized applications.",
+        link: "https://github.com/scaffold-eth/scaffold-eth-2"
+      },
+    ],
   },
   intermediate: {
     title: "Intermediate Resources",
@@ -78,6 +90,23 @@ const resources = {
         link: "https://www.youtube.com/watch?v=SDqzWMeUK9k"
       },
     ],
+    githubProjects: [
+      {
+        title: "Uniswap Interface",
+        description: "Frontend codebase of the Uniswap decentralized exchange, ideal for understanding DeFi UI architecture.",
+        link: "https://github.com/Uniswap/interface"
+      },
+      {
+        title: "ENS App v3",
+        description: "Ethereum Name Service application that demonstrates domain registration and Web3 identity systems.",
+        link: "https://github.com/ensdomains/ens-app-v3"
+      },
+      {
+        title: "Aave Interface",
+        description: "Production-grade lending and borrowing protocol frontend built on Ethereum.",
+        link: "https://github.com/aave/interface"
+      }
+    ],
   },
   expert: {
     title: "Expert Resources",
@@ -115,6 +144,23 @@ const resources = {
         description: "Content on modern web development, Web3, DeFi, and cloud computing from a top developer advocate.",
         link: "https://www.youtube.com/c/naderdabit"
       },
+    ],
+    githubProjects: [
+      {
+        title: "Uniswap V2 Core",
+        description: "Core smart contracts powering one of the world's largest decentralized exchanges.",
+        link: "https://github.com/Uniswap/v2-core"
+      },
+      {
+        title: "Compound Protocol",
+        description: "The underlying smart contract system behind Compound's decentralized lending markets.",
+        link: "https://github.com/compound-finance/compound-protocol"
+      },
+      {
+        title: "OpenZeppelin Contracts",
+        description: "Industry-standard secure smart contract library used across thousands of blockchain projects.",
+        link: "https://github.com/OpenZeppelin/openzeppelin-contracts"
+      }
     ],
   },
 };
@@ -214,7 +260,7 @@ const AnimatedBackground = () => {
 
     return () => {
       cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', () => {});
+      window.removeEventListener('resize', () => { });
     };
   }, []);
 
@@ -246,11 +292,10 @@ export default function Docs() {
   const TabButton = ({ id, label }) => (
     <button
       onClick={() => setActiveTab(id)}
-      className={`px-6 py-2 text-md font-semibold rounded-t-lg transition-colors duration-300 relative border-b-2 ${
-        activeTab === id
-          ? 'text-yellow-300 border-yellow-400'
-          : 'text-gray-400 border-transparent hover:text-yellow-300'
-      }`}
+      className={`px-6 py-2 text-md font-semibold rounded-t-lg transition-colors duration-300 relative border-b-2 ${activeTab === id
+        ? 'text-yellow-300 border-yellow-400'
+        : 'text-gray-400 border-transparent hover:text-yellow-300'
+        }`}
     >
       {label}
     </button>
@@ -278,30 +323,41 @@ export default function Docs() {
         </div>
 
         <div className="max-w-6xl mx-auto bg-black/30 backdrop-blur-md p-4 sm:p-8 rounded-xl border border-gray-800">
-            <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold text-white mb-3">{activeData.title}</h2>
-                <p className="text-gray-400 max-w-2xl mx-auto">{activeData.description}</p>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-white mb-3">{activeData.title}</h2>
+            <p className="text-gray-400 max-w-2xl mx-auto">{activeData.description}</p>
+          </div>
+
+          {/* Blogs Section */}
+          <section className="mb-16">
+            <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Blogs & Articles</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {activeData.blogs.map((item) => (
+                <ResourceCard key={item.link} {...item} type="blog" />
+              ))}
             </div>
+          </section>
 
-            {/* Blogs Section */}
-            <section className="mb-16">
-                <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Blogs & Articles</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {activeData.blogs.map((item) => (
-                        <ResourceCard key={item.link} {...item} type="blog" />
-                    ))}
-                </div>
-            </section>
+          {/* Videos Section */}
+          <section className="mb-16">
+            <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Videos & Tutorials</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {activeData.videos.map((item) => (
+                <ResourceCard key={item.link} {...item} type="video" />
+              ))}
+            </div>
+          </section>
 
-            {/* Videos Section */}
+          {/* GitHub Projects Section */}
             <section>
-                <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Videos & Tutorials</h3>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {activeData.videos.map((item) => (
-                        <ResourceCard key={item.link} {...item} type="video" />
-                    ))}
-                </div>
+              <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">GitHub Projects</h3>
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {activeData.githubProjects.map((item) => (
+                  <ResourceCard key={item.link} {...item} type="github" />
+                ))}
+              </div>
             </section>
+          
         </div>
       </main>
     </div>
