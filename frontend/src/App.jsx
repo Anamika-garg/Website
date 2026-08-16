@@ -11,6 +11,7 @@ import Teams from "./pages/Teams";
 import Docs from "./pages/Docs";
 import Web3Community from "./pages/Web3Community";
 import ScrollToTop from "./components/ScrollToTop";
+import AMHacksPage from "./pages/AMHacksPage";
 
 function App() {
   return (
@@ -28,6 +29,9 @@ function App() {
           <Route path="team" element={<Teams />} />
           <Route path="docs" element={<Docs />} />
           <Route path="web3community" element={<Web3Community />} />
+
+          
+          <Route path="amhacks" element={<AMHacksPage />} />
         </Route>
       </Routes>
     </Router>
