@@ -6,8 +6,7 @@
     transform: translateY(0);
   }
   to {
-    /* Move stars up the screen. The distance should be the height of the stars container. */
-    transform: translateY(-2000px);
+    transform: translateY(-2200px);
   }
 }
 
@@ -23,11 +22,12 @@
 */
 .black-star-bg::before {
   content: '';
-  position: absolute;
+  position: fixed; /* Use fixed to keep stars visible during scroll */
   top: 0;
   left: 0;
   right: 0;
-  height: 2000px; /* Make the starfield taller than the viewport to allow for animation */
+  bottom: 0; /* Cover full viewport height */
+  height: 4000px; /* Make starfield tall enough for seamless loop */
   z-index: 0; /* Place the stars behind the main content */
 
   /* A pattern of white dots (stars) on a transparent background */

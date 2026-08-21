@@ -13,7 +13,9 @@ import AMHacksPage from "./pages/AMHacksPage";
 import Submission from "./pages/Submission";
 import Registration from "./pages/Registration";
 import RequireTeam from "./components/RequireTeam";
+import Web3Community from "./pages/Web3Community";
 import ScrollToTop from "./components/ScrollToTop";
+import AMHacksPage from "./pages/AMHacksPage";
 
 function App() {
   return (
@@ -40,8 +42,9 @@ function App() {
             }
           />
           {/* <Route path="amhacks" element={<AMHacks />} /> */}
+          <Route path="web3community" element={<Web3Community />} />
 
-          {/*Fixed route */}
+          
           <Route path="amhacks" element={<AMHacksPage />} />
 
           {/* Registration flow: Google OAuth redirects here, and Registration.jsx
