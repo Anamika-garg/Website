@@ -28,7 +28,7 @@ const Testimonials = () => {
     },
     {
       id: 3,
-      name: "🥉 Best Build of AM Hacks 2.0",
+      name: "🥉 Best Build of AM VibeAthon",
       x_id: "₹8,000 Cash Prize",
       rank: "Rank #3",
       quote:

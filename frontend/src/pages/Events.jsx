@@ -157,11 +157,11 @@ const Timeline = () => {
   },
   {
     "date": "4-6 APRIL 2025",
-    "title": "AM Hacks",
+    "title": "AM VibeAthon",
     "link": "https://www.instagram.com/reel/DKZu_3qS2IW/",
     "imageUrl": "https://res.cloudinary.com/dalgvlhes/image/upload/v1754845980/Screenshot_2025-08-10_224238_vfubi8.png",
     "subtitle": "The Ultimate Web3 Hackathon",
-    "description": "AM Hacks 2025 at IGDTUW brought together innovators and problem-solvers for a high-energy hackathon, with hands-on coding, expert mentoring, intense challenges, and networking over ideas, snacks, and swag."
+    "description": "AM VibeAthon 2025 at IGDTUW brought together innovators and problem-solvers for a high-energy hackathon, with hands-on coding, expert mentoring, intense challenges, and networking over ideas, snacks, and swag."
   },
   {
     "date": "25th SEP 2025",

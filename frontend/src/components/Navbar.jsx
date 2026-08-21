@@ -12,6 +12,7 @@ const navItems = [
   { path: "/team", label: "Team" },
   { path: "/faq", label: "FAQ" },
   { path: "/docs", label: "Docs" },
+  { path: "/amhacks", label: "AM VibeAthon" },
   { path: "/web3community", label: "Web3 Community" },
   { path: "/", label: "Profile" },
 ];
@@ -58,7 +59,18 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-4">
             {navItems.map((item) => {
-              if (item.label === "Profile") {
+              if (item.label === "AM VibeAthon") {
+                return (
+                  <Link
+                    key={item.label}
+                    to={item.path}
+                    className="bg-yellow-400 text-black uppercase text-sm font-semibold tracking-wider px-4 py-2 rounded-lg 
+                     hover:scale-105 hover:shadow-lg transition-transform duration-200"
+                  >
+                    {item.label}
+                  </Link>
+                );
+              } else if (item.label === "Profile") {
                 return (
                   <Link key={item.label} to={item.path} className="p-2 hover:text-yellow-400">
                     <FontAwesomeIcon icon={faUser} className="h-8 w-8 text-white border-2 border-white rounded-full p-1 hover:text-yellow-400" />
