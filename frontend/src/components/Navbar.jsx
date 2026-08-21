@@ -12,8 +12,8 @@ const navItems = [
   { path: "/team", label: "Team" },
   { path: "/faq", label: "FAQ" },
   { path: "/docs", label: "Docs" },
-  { path: "/amhacks", label: "AM VibeAthon" },
   { path: "/web3community", label: "Web3 Community" },
+  { path: "/amhacks", label: "AM VibeAthon" },
   { path: "/", label: "Profile" },
 ];
 

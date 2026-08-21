@@ -15,7 +15,6 @@ import Registration from "./pages/Registration";
 import RequireTeam from "./components/RequireTeam";
 import Web3Community from "./pages/Web3Community";
 import ScrollToTop from "./components/ScrollToTop";
-import AMHacksPage from "./pages/AMHacksPage";
 
 function App() {
   return (
