@@ -62,14 +62,14 @@ const Tagline = () => {
         <div className="sparkle"></div>
         <div className="sparkle"></div>
         
-        <h1 className="title">AM Hacks 2.0 <span></span></h1>
+        <h1 className="title">AM VibeAthon 2.0 <span></span></h1>
         <p className="subtitle">Where Creativity Meets Technology, and Every Idea Becomes a Game Changing Innovation</p>
         
         {/* Event Date */}
         <div className="event-date">
           <div className="date-icon"></div>
           <p className="date-text">
-            🚀🔥 <strong>AM HACKS 2.0</strong> is happening on{' '}
+            🚀🔥 <strong>AM VIBEATHON 2.0</strong> is happening on{' '}
             <strong>16th – 18th February 2026</strong> 💻⚡
           </p>
         </div>

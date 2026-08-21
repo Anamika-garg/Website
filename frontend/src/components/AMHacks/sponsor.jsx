@@ -6,7 +6,7 @@ const themeData = [
     icon: <FaLightbulb />,
     title: "Open Innovation",
     description:
-      "AM Hacks 2.0 2026 follows an Open Innovation Track, empowering participants from any domain to ideate, design, and build impactful solutions aligned with their own interests—without being constrained by a predefined theme. All submissions will be evaluated by an expert jury panel."
+      "AM VibeAthon 2.0 2026 follows an Open Innovation Track, empowering participants from any domain to ideate, design, and build impactful solutions aligned with their own interests—without being constrained by a predefined theme. All submissions will be evaluated by an expert jury panel."
   },
   {
     icon: <FaCogs />,
@@ -45,3 +45,4 @@ const Sponsor = () => {
 };
 
 export default Sponsor;
+

@@ -149,7 +149,7 @@ Venue will be announced soon.`,
       <div className="text-center mb-16">
         <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">Hackathon Rounds</h2>
         <p className="text-gray-400 mt-3 max-w-2xl mx-auto">
-          A step by step breakdown of the AM Hacks selection and evaluation process
+          A step by step breakdown of the AM VibeAthon selection and evaluation process
         </p>
       </div>
 

@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-
 import FAQ from "./pages/FAQs";
+import preloader from "./components/PreLoader";
 import Layout from "./pages/Layout";
 import Home from "./pages/Home";
 import CollaboratePage from "./components/CollaboratePage";
@@ -10,6 +10,9 @@ import Events from "./pages/Events";
 import Teams from "./pages/Teams";
 import Docs from "./pages/Docs";
 import AMHacksPage from "./pages/AMHacksPage";
+import Submission from "./pages/Submission";
+import Registration from "./pages/Registration";
+import RequireTeam from "./components/RequireTeam";
 import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
@@ -20,6 +23,7 @@ function App() {
         {/* Layout Route */}
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="preloader" element={<preloader />} />
           <Route path="faq" element={<FAQ />} />
           <Route path="collaborate" element={<CollaboratePage />} />
           <Route path="sponsor" element={<SponsorPage />} />
@@ -27,10 +31,24 @@ function App() {
           <Route path="events" element={<Events />} />
           <Route path="team" element={<Teams />} />
           <Route path="docs" element={<Docs />} />
+          <Route
+            path="submit"
+            element={
+              <RequireTeam>
+                <Submission />
+              </RequireTeam>
+            }
+          />
           {/* <Route path="amhacks" element={<AMHacks />} /> */}
 
           {/*Fixed route */}
           <Route path="amhacks" element={<AMHacksPage />} />
+
+          {/* Registration flow: Google OAuth redirects here, and Registration.jsx
+              itself handles every phase (loading -> profile form -> team page)
+              based on the current Supabase session, so /auth/callback reuses it. */}
+          <Route path="register" element={<Registration />} />
+          <Route path="auth/callback" element={<Registration />} />
         </Route>
       </Routes>
     </Router>
@@ -38,3 +56,4 @@ function App() {
 }
 
 export default App;
+
