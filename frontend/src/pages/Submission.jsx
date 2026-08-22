@@ -18,6 +18,7 @@ const sections = [
         type: "text",
         placeholder: "Enter your project name",
         span: "full",
+        maxLength: 100,
       },
       {
         id: "problemStatement",
@@ -26,6 +27,7 @@ const sections = [
         placeholder: "What problem does your project solve?",
         rows: 5,
         span: "full",
+        maxLength: 2000,
       },
       {
         id: "projectDescription",
@@ -34,6 +36,7 @@ const sections = [
         placeholder: "Describe your project in detail",
         rows: 7,
         span: "full",
+        maxLength: 5000,
       },
     ],
   },
@@ -48,6 +51,7 @@ const sections = [
         type: "url",
         placeholder: "https://github.com/your-team/repository",
         span: "half",
+        maxLength: 500,
       },
       {
         id: "figmaLink",
@@ -55,6 +59,7 @@ const sections = [
         type: "url",
         placeholder: "https://figma.com/...",
         span: "half",
+        maxLength: 500,
       },
       {
         id: "liveDemoLink",
@@ -62,6 +67,7 @@ const sections = [
         type: "url",
         placeholder: "https://your-demo.vercel.app",
         span: "half",
+        maxLength: 500,
       },
       {
         id: "demoVideoLink",
@@ -69,6 +75,7 @@ const sections = [
         type: "url",
         placeholder: "https://youtube.com/watch?v=...",
         span: "half",
+        maxLength: 500,
       },
     ],
   },
@@ -476,6 +483,7 @@ const Submission = () => {
           "Your submission has been updated successfully."
         );
 
+        navigate("/register")
         return;
       }
 
@@ -726,6 +734,12 @@ const Submission = () => {
               {field.hint}
             </span>
           )}
+
+          {field.maxLength && (
+            <span className="text-xs text-gray-500">
+              {value.length}/{field.maxLength}
+            </span>
+          )}
         </label>
 
         {field.type === "textarea" ? (
@@ -734,12 +748,14 @@ const Submission = () => {
             rows={field.rows || 4}
             placeholder={field.placeholder}
             value={value}
+            maxLength={field.maxLength}
             onChange={(event) =>
               handleChange(
                 field.id,
                 event.target.value
               )
             }
+
             className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-yellow-500/50 focus:border-yellow-500/50 transition-all resize-none"
           />
         ) : (
@@ -748,6 +764,7 @@ const Submission = () => {
             type={field.type}
             placeholder={field.placeholder}
             value={value}
+            maxLength={field.maxLength}
             onChange={(event) =>
               handleChange(
                 field.id,
