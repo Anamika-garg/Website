@@ -560,26 +560,28 @@ const Registration = () => {
               onClick={() => navigate("/submit")}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="w-full flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-lg text-black bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/20 transition-all duration-300"
+              className="w-auto flex items-center justify-center gap-2 py-3 px-6 rounded-lg font-semibold text-lg text-black bg-gradient-to-r from-yellow-500 to-amber-600 hover:from-yellow-400 hover:to-amber-500 shadow-lg shadow-yellow-500/20 transition-all duration-300"
             >
               Continue to Submission <ArrowRight size={18} />
             </motion.button>
           ) : (
             <Link
               to="/"
-              className="block w-full text-center py-3 px-6 rounded-lg font-semibold border-2 border-white/10 text-gray-400 hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300"
+              className="inline-flex items-center justify-center w-auto py-3 px-6 rounded-lg font-semibold text-lg border-2 border-white/10 text-gray-400 hover:border-yellow-400 hover:text-yellow-400 transition-all duration-300"
             >
               Back to Home
             </Link>
           )}
 
-          <button
-            onClick={handleLeaveTeam}
-            disabled={busy}
-            className="w-full text-center text-xs text-gray-500 hover:text-red-400 transition-colors disabled:opacity-50"
-          >
-            Leave team
-          </button>
+          <div className="pt-6 mt-3 border-t border-white/5 text-center">
+            <button
+              onClick={handleLeaveTeam}
+              disabled={busy}
+              className="text-xs text-gray-500 hover:text-red-400 transition-colors disabled:opacity-50"
+            >
+              Leave team
+            </button>
+          </div>
         </div>
       </PageShell>
     );
