@@ -74,47 +74,50 @@ const Tagline = () => {
         <div className="sparkle"></div>
         <div className="sparkle"></div>
 
-        <h1 className="title">AM Hacks 2.0 <span>2026</span></h1>
+        <h1 className="title">AM Vibeathon <span>2026</span></h1>
 
         <p className="subtitle">
-          Where Creativity Meets Technology, and Every Idea Becomes a Game Changing Innovation
+          Got an idea? Let Her Cook.👀
+          <br/>
+          Step in, build bold, and turn your idea into something real.
         </p>
 
         {/* Event Date */}
         <div className="event-date">
           <p className="date-text">
-            🚀🔥 <strong>AM HACKS 2.0</strong> is happening on{' '}
-            <strong>16th – 18th February 2026</strong> 💻⚡
+            🚀🔥 <strong>AM Vibeathon </strong> is happening soon..
+            {/* 🚀🔥 <strong>AM Vibeathon </strong> is happening on{' '} */}
+            {/* <strong>16th – 18th February 2026</strong> 💻⚡ */}
           </p>
         </div>
 
         {/* Registration Deadline */}
-        <p className="registration-deadline">
+        {/* <p className="registration-deadline">
           ⏳ <strong>Last Day of Registration:</strong> 10th February 2026 — Register Fast!!
-        </p>
+        </p> */}
 
         {/* Registration Countdown */}
         <div className="countdown-container">
           <div className="countdown-box">
-            <div className="countdown-value">{registrationTimeLeft.days}</div>
+            <div className="countdown-value">{registrationTimeLeft.days == 0 ? "S" : registrationTimeLeft.days}</div>
             <div className="countdown-label">Days</div>
           </div>
           <div className="countdown-separator">:</div>
 
           <div className="countdown-box">
-            <div className="countdown-value">{registrationTimeLeft.hours}</div>
+            <div className="countdown-value">{registrationTimeLeft.hours == 0 ? "O" : registrationTimeLeft.hours}</div>
             <div className="countdown-label">Hours</div>
           </div>
           <div className="countdown-separator">:</div>
 
           <div className="countdown-box">
-            <div className="countdown-value">{registrationTimeLeft.minutes}</div>
+            <div className="countdown-value">{registrationTimeLeft.minutes == 0 ? "O" : registrationTimeLeft.minutes}</div>
             <div className="countdown-label">Minutes</div>
           </div>
           <div className="countdown-separator">:</div>
 
           <div className="countdown-box">
-            <div className="countdown-value">{registrationTimeLeft.seconds}</div>
+            <div className="countdown-value">{registrationTimeLeft.seconds == 0 ? "N" : registrationTimeLeft.seconds}</div>
             <div className="countdown-label">Seconds</div>
           </div>
         </div>
@@ -124,18 +127,18 @@ const Tagline = () => {
           🚀 <strong>Hackathon Begins:</strong> 16th February 2026, 9:00 AM (IST)
         </p> */}
 
-        <p className="registration-deadline" style={{ marginTop: "30px" }}>
+        {/* <p className="registration-deadline" style={{ marginTop: "30px" }}>
           🚀 <strong>Hackathon Begins In:</strong>{' '}
           {hackathonTimeLeft.days}d {hackathonTimeLeft.hours}h{' '}
           {hackathonTimeLeft.minutes}m {hackathonTimeLeft.seconds}s
-        </p>
+        </p> */}
 
 
 
         <button className="pt-5">
           <a
             className="coming-btn"
-            href="https://fluxor.io/hackathon/am-hacks-2026?utm_source=whatsapp&utm_medium=social&utm_campaign=hackathon_share&page=1"
+            href="/register"
           >
             Register Now
           </a>

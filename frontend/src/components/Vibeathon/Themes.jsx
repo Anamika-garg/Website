@@ -26,7 +26,7 @@ const Card = ({ icon, title, description }) => (
   </div>
 );
 
-const Sponsor = () => {
+const Themes = () => {
   return (
     <section className="bg-black text-white py-20">
       <div className="container mx-auto px-4">
@@ -44,4 +44,4 @@ const Sponsor = () => {
   );
 };
 
-export default Sponsor;
+export default Themes;

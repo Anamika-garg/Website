@@ -49,7 +49,7 @@ const Vibeathon = () => {
             >
               {/* TITLE */}
               <motion.div variants={childVariants}>
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 mt-12">
+                <h1 className="text-5xl md:text-7xl lg:text-7xl font-extrabold tracking-tight mb-6 mt-12">
                   <span className="bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
                     Ideas Made by Her.
                   </span>
