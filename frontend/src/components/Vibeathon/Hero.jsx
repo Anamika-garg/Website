@@ -79,7 +79,7 @@ const Vibeathon = () => {
                 variants={childVariants}
               >
                 <motion.a
-                  href="#register"
+                  href="/register"
                   className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-yellow-300 hover:to-amber-400 transition-all duration-300 shadow-lg hover:shadow-xl"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
