@@ -135,7 +135,7 @@ const Registration = () => {
   // profile form state
   const [fullName, setFullName] = useState("");
   const [github, setGithub] = useState("");
-  const [college, setCollege] = useState("");
+  const [college, setCollege] = useState("IGDTUW");
   const [phone, setPhone] = useState("");
 
   // team join form state
@@ -154,7 +154,7 @@ const Registration = () => {
       if (!myProfile?.registration_complete) {
         setFullName(myProfile?.full_name || "");
         setGithub(myProfile?.github || "");
-        setCollege(myProfile?.college || "");
+        setCollege("IGDTUW");
         setPhone(myProfile?.phone || "");
         setPhase("profile-form");
         return;
@@ -357,14 +357,45 @@ const Registration = () => {
             onChange={(e) => setGithub(e.target.value)}
             required
           />
-          <InputField
+          {/* <InputField
             icon={School}
             label="College"
             placeholder="Your college / university"
             value={college}
             onChange={(e) => setCollege(e.target.value)}
             required
-          />
+          /> */}
+          <div>
+  <InputField
+    icon={School}
+    label="College"
+    placeholder="IGDTUW"
+    value="IGDTUW"
+    disabled
+    required
+  />
+
+  <p className="mt-1 text-sm text-gray-500">
+    Only students from IGDTUW are eligible.
+  </p>
+</div>
+
+<div className="mt-4">
+  <InputField
+    icon={School}
+    label="Grade"
+    placeholder="1st Year"
+    value="1st Year"
+    disabled
+    required
+  />
+
+  <p className="mt-1 text-sm text-gray-500">
+    Only first-year students are eligible.
+  </p>
+</div>
+
+        
           <InputField
             icon={Phone}
             label="Phone"
