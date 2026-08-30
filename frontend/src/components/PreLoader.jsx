@@ -52,7 +52,7 @@ const Preloader = () => {
         {[...Array(4)].map((_, i) => (
           <React.Fragment key={i}>
             <motion.div 
-              className="block"
+              className="preloader-block"
               custom={i}
               initial="hidden"
               animate="visible"

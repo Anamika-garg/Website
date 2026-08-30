@@ -652,7 +652,7 @@ const Submission = () => {
             {/* TITLE */}
 
             <p className="text-yellow-400 uppercase tracking-[0.25em] text-xs font-semibold mb-3">
-              AM Vibeathon
+              SheVibes
             </p>
 
             <h1 className="text-3xl md:text-4xl font-bold mb-4">
@@ -803,7 +803,7 @@ const Submission = () => {
           className="text-center mb-12"
         >
           <p className="text-yellow-400 uppercase tracking-[0.3em] text-sm font-semibold mb-3">
-            AM Vibeathon
+            SheVibes
           </p>
 
           <h1 className="text-4xl md:text-5xl font-bold mb-4">

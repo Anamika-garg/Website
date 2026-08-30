@@ -137,6 +137,9 @@ const TeamMemberCard = ({ member }) => {
     const rotateX = ((y / height) - 0.5) * -40; // Max rotation on X-axis
     const rotateY = ((x / width) - 0.5) * 40;  // Max rotation on Y-axis
 
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
+
     setStyle({
       transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`,
     });
@@ -151,7 +154,7 @@ const TeamMemberCard = ({ member }) => {
   return (
     <div
       ref={cardRef}
-      className="group relative w-full max-w-xs rounded-2xl border border-slate-800 bg-slate-900/60 p-6 text-center shadow-lg backdrop-blur-sm transition-transform duration-300 ease-out [transform-style:preserve-3d]"
+      className="group relative w-full max-w-xs rounded-2xl border border-white/10 bg-white/[0.01] hover:bg-white/[0.03] p-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out [transform-style:preserve-3d] hover:border-amber-500/30 spotlight-card"
       style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
@@ -160,26 +163,26 @@ const TeamMemberCard = ({ member }) => {
         <img
           src={member.imageUrl}
           alt={`Profile of ${member.name}`}
-          className="mx-auto h-32 w-32 rounded-full border-4 border-slate-700 object-cover shadow-md transition-all duration-300 group-hover:border-amber-400 [transform:translateZ(40px)]"
+          className="mx-auto h-32 w-32 rounded-full border-2 border-white/10 object-cover shadow-md transition-all duration-300 group-hover:border-amber-400 group-hover:scale-105 [transform:translateZ(40px)]"
           onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/128x128/1e293b/FFFFFF?text=Image'; }}
         />
       </div>
-      <h3 className="mt-4 text-2xl font-bold text-white [transform:translateZ(30px)]">{member.name}</h3>
-      <p className="mt-1 font-medium text-amber-400 [transform:translateZ(20px)]">{member.position}</p>
-      <div className="mt-5 flex items-center justify-center gap-4 opacity-70 transition-opacity duration-300 group-hover:opacity-100 [transform:translateZ(20px)]">
+      <h3 className="font-display mt-5 text-xl font-bold text-white [transform:translateZ(30px)] group-hover:text-amber-300 transition-colors duration-300">{member.name}</h3>
+      <p className="mt-1 text-sm font-medium text-amber-400/80 [transform:translateZ(20px)]">{member.position}</p>
+      <div className="mt-5 flex items-center justify-center gap-4 opacity-75 transition-opacity duration-300 group-hover:opacity-100 [transform:translateZ(20px)]">
         {member.socials.linkedin && member.socials.linkedin !== '#' && (
-          <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="text-slate-400 transition-colors hover:text-amber-400">
-            <Linkedin size={24} />
+          <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/30 hover:bg-white/10 transition-all duration-300">
+            <Linkedin size={15} />
           </a>
         )}
         {member.socials.twitter && member.socials.twitter !== '#' && (
-          <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-400 transition-colors hover:text-amber-400">
-            <Twitter size={24} />
+          <a href={member.socials.twitter} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/30 hover:bg-white/10 transition-all duration-300">
+            <Twitter size={15} />
           </a>
         )}
         {member.socials.instagram && member.socials.instagram !== '#' && (
-          <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-400 transition-colors hover:text-amber-400">
-            <Instagram size={24} />
+          <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/30 hover:bg-white/10 transition-all duration-300">
+            <Instagram size={15} />
           </a>
         )}
       </div>
@@ -210,40 +213,37 @@ export default function Teams() {
 
   // Enhanced background with multiple layers
   const BackgroundPattern = () => (
-    <div className="absolute inset-0 z-0 overflow-hidden">
-      <div className="absolute inset-0 bg-black"></div>
-      <div className="absolute inset-0 z-10 opacity-20" style={{
-        backgroundImage: 'radial-gradient(circle at 1px 1px, #a3a3a3 1px, transparent 0)',
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-20">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,_rgba(255,255,255,0.08)_1px,_transparent_0)]" style={{
         backgroundSize: '1.5rem 1.5rem'
       }}></div>
-      <div className="absolute inset-0 z-0 bg-[radial-gradient(circle_at_center,_rgba(217,119,6,0.2),_rgba(0,0,0,0)_50%)]"></div>
     </div>
   );
 
   return (
-    <div className="relative bg-black text-white min-h-screen font-sans overflow-hidden">
+    <div className="relative bg-transparent text-white min-h-screen font-sans overflow-hidden">
       <BackgroundPattern />
-      <div className="relative z-10 container mx-auto px-4 py-16 sm:py-24">
+      <div className="relative z-10 container mx-auto px-4 py-24 sm:py-28 mt-12">
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-extrabold mt-16 tracking-tight bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 to-amber-500">
-            Meet The Team
+          <h1 className="font-sans text-4xl md:text-5xl font-black mt-20 tracking-tight text-white">
+            Meet the <span className="font-serif italic font-normal text-amber-400">Team</span>
           </h1>
-          <p className="mt-4 text-lg text-slate-400 max-w-2xl mx-auto">
+          <p className="mt-4 text-base text-slate-400 max-w-xl mx-auto font-light leading-relaxed">
             The passionate individuals driving our vision forward.
           </p>
         </div>
 
         {/* --- MODIFIED: Responsive Tab Navigation --- */}
-        <div className="flex justify-center mb-12">
-          <div className="flex flex-wrap justify-center gap-2 rounded-lg p-2 bg-slate-900/70 backdrop-blur-sm border border-slate-800">
+        <div className="flex justify-center mb-16">
+          <div className="flex flex-wrap justify-center gap-1.5 p-1.5 bg-white/[0.02] border border-white/10 rounded-full backdrop-blur-md">
             {teams.map(team => (
               <button
                 key={team}
                 onClick={() => setActiveTab(team)}
-                className={`flex-shrink-0 px-4 py-2 text-sm font-medium rounded-md transition-all duration-300 whitespace-nowrap ${
+                className={`flex-shrink-0 px-5 py-2 text-xs font-display font-bold uppercase tracking-wider rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   activeTab === team
-                    ? 'text-slate-900 bg-[#F6B433] shadow-md shadow-amber-500/30'
-                    : 'text-slate-300 hover:text-white hover:bg-slate-800/50'
+                    ? 'text-slate-950 bg-amber-400 shadow-md shadow-amber-500/10'
+                    : 'text-slate-400 hover:text-white hover:bg-white/5'
                 }`}
               >
                 {team} Team

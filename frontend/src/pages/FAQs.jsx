@@ -24,17 +24,16 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }) => {
   return (
     <motion.div
       variants={itemVariants}
-      // The design is now updated to a "glass" style
-      className="border border-white/10 rounded-2xl overflow-hidden transition-all duration-300 bg-white/5 backdrop-blur-md group"
+      className="border border-white/5 rounded-2xl overflow-hidden transition-all duration-300 bg-white/[0.01] hover:bg-white/[0.03] backdrop-blur-md group"
     >
       <button
-        className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
+        className="w-full flex items-center justify-between p-5 text-left focus:outline-none cursor-pointer"
         onClick={toggleOpen}
       >
-        <span className="text-lg font-semibold text-white">
+        <span className="text-base font-semibold text-slate-200 group-hover:text-white transition-colors duration-300">
           {question}
         </span>
-        <span className={`transition-transform duration-300 text-yellow-400 ${isOpen ? 'rotate-180' : ''}`}>
+        <span className={`transition-transform duration-300 text-amber-400 ${isOpen ? 'rotate-180' : ''}`}>
           <ChevronDown size={20} />
         </span>
       </button>
@@ -96,14 +95,11 @@ const faqs = [
   };
 
   return (
-    <section id="faq" className="relative overflow-hidden min-h-screen w-full flex items-center justify-center py-20 px-4">
-      {/* The new background component is placed here */}
-      <GridBackground />
-
+    <section id="faq" className="relative overflow-hidden min-h-screen w-full flex items-center justify-center py-24 px-6">
       <div className="container relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl mt-16 font-bold mb-6 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-amber-500">
-            Frequently Asked Questions
+          <h2 className="font-sans text-3xl md:text-4xl mt-24 font-black mb-6 text-white tracking-tight">
+            Frequently Asked <span className="font-serif italic font-normal text-amber-400">Questions</span>
           </h2>
         </div>
 
@@ -125,11 +121,11 @@ const faqs = [
           ))}
         </motion.div>
 
-        <div className="text-center mt-16">
-          <p className="text-gray-400 text-lg mb-6">Still have questions?</p>
+        <div className="text-center mt-20">
+          <p className="text-slate-400 text-base mb-6 font-light">Still have questions?</p>
           <a
             href="/"
-            className="inline-block px-8 py-3 border-2 border-yellow-400 text-yellow-300 font-semibold hover:bg-yellow-400 hover:text-black rounded-lg transition-all duration-300"
+            className="inline-block px-8 py-3.5 bg-gradient-to-r from-amber-500/10 to-yellow-500/5 border border-amber-500/20 text-amber-300 font-display text-xs font-bold tracking-widest hover:bg-amber-500/20 hover:border-amber-400/50 rounded-full transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.05)] hover:shadow-[0_0_20px_rgba(245,158,11,0.12)] cursor-pointer"
           >
             Contact Us
           </a>

@@ -23,6 +23,14 @@ import {
 } from 'lucide-react';
 import './EventsCSS.css';
 
+const handleCardMouseMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+};
+
 const Web3Community = () => {
   const ParticleBackground = () => {
     const particles = Array.from({ length: 20 });
@@ -60,21 +68,19 @@ const Web3Community = () => {
   const Hero = () => (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       <ParticleBackground />
-      <div className="absolute inset-0 bg-gradient-to-b from-amber-900/10 via-black/50 to-black"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-[#050507]/20 via-[#050507]/60 to-[#050507]"></div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-4 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 text-center mt-36 md:mt-40">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500">
-              Web3 Community
-            </span>
+          <h1 className="font-sans text-4xl md:text-7xl font-black mb-6 tracking-tight text-white animate-fade-in">
+            Web3 <span className="font-serif italic font-normal text-amber-400">Community</span>
           </h1>
-          <p className="text-lg md:text-xl text-slate-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-            A student-led space for learning, building, collaborating, and innovating in Web3
+          <p className="text-base md:text-lg text-slate-400 max-w-xl mx-auto mb-10 leading-relaxed font-light">
+            A student-led space for learning, building, collaborating, and innovating in Web3.
           </p>
         </motion.div>
 
@@ -85,16 +91,16 @@ const Web3Community = () => {
           className="flex flex-wrap justify-center gap-4"
         >
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-lg font-bold text-lg text-black hover:from-yellow-300 hover:to-amber-400 transition-all duration-300 shadow-lg shadow-yellow-500/30"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3.5 bg-gradient-to-r from-amber-500/10 to-yellow-500/5 border border-amber-500/30 text-amber-300 rounded-full font-display font-bold text-xs tracking-widest hover:bg-amber-500/20 hover:border-amber-400/50 transition-all duration-300 shadow-[0_0_15px_rgba(245,158,11,0.05)] cursor-pointer"
           >
             Join the Community
           </motion.button>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 border-2 border-yellow-400 rounded-lg font-bold text-lg text-yellow-400 hover:bg-yellow-400 hover:text-black transition-all duration-300"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-8 py-3.5 bg-transparent border border-white/10 rounded-full font-display font-bold text-xs tracking-widest text-slate-300 hover:text-white hover:bg-white/5 hover:border-white/20 transition-all duration-300 cursor-pointer"
           >
             Explore Opportunities
           </motion.button>
@@ -142,15 +148,16 @@ const Web3Community = () => {
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  className="group bg-black rounded-2xl p-6 border border-yellow-500/30 shadow-[0_0_15px_rgba(245,166,35,0.2)] hover:shadow-[0_0_25px_rgba(245,166,35,0.4)] hover:border-yellow-400 transition-all duration-300"
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  whileHover={{ y: -6, scale: 1.01 }}
+                  onMouseMove={handleCardMouseMove}
+                  className="group bg-white/[0.01] rounded-2xl p-6 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-amber-400/30 transition-all duration-300 spotlight-card"
                 >
-                  <div className="w-14 h-14 bg-gradient-to-br from-yellow-500/20 to-amber-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <Icon className="w-7 h-7 text-yellow-400" />
+                  <div className="w-12 h-12 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-105 transition-transform duration-300">
+                    <Icon className="w-6 h-6 text-amber-400" />
                   </div>
-                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
-                  <p className="text-sm text-slate-400">{feature.desc}</p>
+                  <h3 className="font-display text-lg font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-xs text-slate-400 font-light leading-relaxed">{feature.desc}</p>
                 </motion.div>
               );
             })}
@@ -197,9 +204,10 @@ const Web3Community = () => {
                   initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.1 }}
-                  whileHover={{ scale: 1.03 }}
-                  className="group bg-black rounded-2xl p-8 border border-yellow-500/30 shadow-[0_0_15px_rgba(245,166,35,0.2)] hover:shadow-[0_0_25px_rgba(245,166,35,0.4)] hover:border-yellow-400 transition-all duration-300"
+                  transition={{ duration: 0.6, delay: i * 0.08 }}
+                  whileHover={{ scale: 1.02 }}
+                  onMouseMove={handleCardMouseMove}
+                  className="group bg-white/[0.01] rounded-2xl p-8 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-amber-400/30 transition-all duration-300 spotlight-card"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -394,15 +402,16 @@ const Web3Community = () => {
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: i * 0.15 }}
-                whileHover={{ y: -10 }}
-                className="group bg-black rounded-2xl p-8 border border-yellow-500/30 shadow-[0_0_15px_rgba(245,166,35,0.2)] hover:shadow-[0_0_25px_rgba(245,166,35,0.4)] hover:border-yellow-400 transition-all duration-300"
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -6 }}
+                onMouseMove={handleCardMouseMove}
+                className="group bg-white/[0.01] rounded-2xl p-8 border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-amber-400/30 transition-all duration-300 spotlight-card"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500/20 to-amber-500/10 rounded-xl flex items-center justify-center mb-6 group-hover:rotate-6 transition-transform duration-300">
-                  <Icon className="w-8 h-8 text-yellow-400" />
+                <div className="w-14 h-14 bg-white/5 border border-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:rotate-3 transition-transform duration-300">
+                  <Icon className="w-7 h-7 text-amber-400" />
                 </div>
-                <h3 className="text-2xl font-bold text-white mb-3">{item.title}</h3>
-                <p className="text-slate-400">{item.desc}</p>
+                <h3 className="font-display text-xl font-bold text-white mb-3">{item.title}</h3>
+                <p className="text-slate-400 text-sm font-light leading-relaxed">{item.desc}</p>
               </motion.div>
             );
           })}
@@ -413,10 +422,8 @@ const Web3Community = () => {
 
   // CTA section
   const CTA = () => (
-    <section className="py-20 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 relative z-10"></div>
-
-      <div className="max-w-4xl mx-auto px-4 relative z-10 text-center">
+    <section className="py-24 relative overflow-hidden">
+      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -424,19 +431,19 @@ const Web3Community = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-5xl md:text-6xl font-extrabold mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500">
+            <span className="font-display bg-clip-text text-transparent bg-gradient-to-r from-amber-400 via-yellow-200 to-amber-500 tracking-tight">
               Ready to Join?
             </span>
           </h2>
-          <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-            Become part of the Web3 ecosystem and start your journey today
+          <p className="text-base text-slate-400 mb-10 max-w-md mx-auto font-light leading-relaxed">
+            Become part of the Web3 ecosystem and start your journey today.
           </p>
           <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-10 py-5 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-lg font-bold text-xl text-black hover:from-yellow-300 hover:to-amber-400 transition-all duration-300 shadow-lg shadow-yellow-500/40"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            className="px-10 py-4 bg-gradient-to-r from-amber-500/10 to-yellow-500/5 border border-amber-500/30 text-amber-300 rounded-full font-display font-bold text-sm tracking-widest hover:bg-amber-500/20 hover:border-amber-400/50 transition-all duration-300 shadow-[0_0_20px_rgba(245,158,11,0.05)] cursor-pointer"
           >
-            Join Now <ArrowRight className="inline-block ml-2 w-5 h-5" />
+            Join Now <ArrowRight className="inline-block ml-2 w-4 h-4" />
           </motion.button>
         </motion.div>
       </div>

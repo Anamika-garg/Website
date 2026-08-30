@@ -129,33 +129,104 @@ const SwiperStyles = () => (
   <style>{`
     .events-carousel .swiper-button-next,
     .events-carousel .swiper-button-prev {
-      color: #FFC640; /* Your theme's gold color */
+      color: #F6B433; /* Your theme's gold color */
       transform: scale(0.7);
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 20px;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      padding: 24px;
       border-radius: 50%;
+      transition: all 0.3s ease;
     }
     .events-carousel .swiper-button-next:hover,
     .events-carousel .swiper-button-prev:hover {
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: rgba(255, 255, 255, 0.1);
+        border-color: rgba(246, 180, 51, 0.5);
     }
     .events-carousel .swiper-pagination-bullet {
-      background-color: #6b7280; /* Gray for inactive dots */
+      background-color: #4b5563; /* Gray for inactive dots */
       opacity: 0.7;
     }
     .events-carousel .swiper-pagination-bullet-active {
-      background-color: #FFC640; /* Gold for the active dot */
+      background-color: #F6B433; /* Gold for the active dot */
       opacity: 1;
+      width: 16px;
+      border-radius: 4px;
     }
   `}</style>
 );
 
+const EventCard = ({ card }) => {
+  const cardRef = React.useRef(null);
+  const [style, setStyle] = React.useState({});
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+    const x = clientX - left;
+    const y = clientY - top;
+    const rotateX = ((y / height) - 0.5) * -15; // Max 15deg rotation on X-axis
+    const rotateY = ((x / width) - 0.5) * 15;  // Max 15deg rotation on Y-axis
+
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
+
+    setStyle({
+      transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setStyle({
+      transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+    });
+  };
+
+  return (
+    <div
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        ...style,
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.15s ease-out',
+      }}
+      className="group h-full bg-white/[0.02] backdrop-blur-xl rounded-2xl p-6 border border-white/10 flex flex-col text-center shadow-[0_8px_32px_rgba(0,0,0,0.3)] hover:border-amber-400/30 transition-colors duration-500 spotlight-card"
+    >
+      <div className="mb-6 overflow-hidden rounded-xl border border-white/5 bg-black/40 h-48 flex items-center justify-center [transform:translateZ(20px)]">
+        <img
+          src={card.image}
+          alt={card.title}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+
+      <h4 className="font-display text-lg font-bold mb-3 text-white group-hover:text-amber-300 transition-colors duration-300 [transform:translateZ(30px)]">
+        {card.title}
+      </h4>
+      <p className="text-slate-400 text-sm flex-grow leading-relaxed font-light [transform:translateZ(10px)]">
+        {card.content}
+      </p>
+
+      <div className="mt-6 [transform:translateZ(15px)]">
+        <Link
+          to={card.readMoreLink}
+          className="inline-block bg-gradient-to-r from-amber-500/10 to-yellow-500/5 border border-amber-500/20 text-amber-300 font-display text-xs font-bold tracking-wider px-5 py-2.5 rounded-full hover:bg-amber-500/25 hover:border-amber-400/50 transition-all duration-300"
+        >
+          Read More &rarr;
+        </Link>
+      </div>
+    </div>
+  );
+};
 
 const EventsCaraousel = () => {
   return (
     <motion.section 
       id="events" 
-      className="py-20 relative w-[90%] mx-auto overflow-hidden"
+      className="py-24 relative w-[90%] mx-auto overflow-hidden"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
@@ -163,8 +234,8 @@ const EventsCaraousel = () => {
     >
       <SwiperStyles />
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <h3 className="text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 via-yellow-400 to-amber-500">
-          Our Past Events
+        <h3 className="font-sans text-3xl md:text-4xl font-black mb-12 text-center text-white tracking-tight">
+          Creating Impact Through <span className="font-serif italic font-normal text-amber-400">Events</span>
         </h3>
         
         <Swiper
@@ -182,28 +253,8 @@ const EventsCaraousel = () => {
           className="events-carousel"
         >
           {cards.map((card, index) => (
-            <SwiperSlide key={index} className="self-stretch">
-              <div 
-                className="group h-full bg-black/20 backdrop-blur-md rounded-2xl p-6 border border-white/10 
-                           flex flex-col text-center transition-all duration-300
-                           hover:border-yellow-400/50 hover:bg-black/30 hover:-translate-y-2"
-              >
-                <div className="mb-6 overflow-hidden rounded-lg">
-                  <img src={card.image} alt={card.title} className='w-full h-48 object-contain transition-transform duration-300 group-hover:scale-105' />
-                </div>
-                
-                <h4 className="text-xl font-semibold mb-3 text-white">{card.title}</h4>
-                <p className="text-gray-400 text-sm flex-grow">{card.content}</p>
-                
-                <div className="mt-6">
-                  <Link 
-                    to={card.readMoreLink}
-                    className="text-yellow-400 font-semibold text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  >
-                    Read More &rarr;
-                  </Link>
-                </div>
-              </div>
+            <SwiperSlide key={index} className="self-stretch py-4">
+              <EventCard card={card} />
             </SwiperSlide>
           ))}
         </Swiper>

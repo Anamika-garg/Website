@@ -1,16 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, MapPin, Users } from "lucide-react";
-
-import img1 from "/amhacks1.jpeg";
-import img2 from "/amhacks2.jpeg";
-import img3 from "/amhacks3.jpeg";
-import img4 from "/amhacks4.jpg";
-import img5 from "/amhacks5.jpg";
-import heroBg from "/amhacks.jpeg";
-
+import { AMVibeathonEffect } from "@/components/ui/apple-hello-effect";
 
 const Vibeathon = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const registrationDeadline = new Date('2026-02-10T23:59:59').getTime();
+
+    const calculateTimeLeft = () => {
+      const now = new Date().getTime();
+      const diff = registrationDeadline - now;
+
+      if (diff > 0) {
+        return {
+          days: Math.floor(diff / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((diff % (1000 * 60)) / 1000),
+        };
+      }
+
+      return { days: 0, hours: 0, minutes: 0, seconds: 0 };
+    };
+
+    const updateCountdown = () => {
+      setTimeLeft(calculateTimeLeft());
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
   const staggerChildren = {
     hidden: { opacity: 0 },
     visible: {
@@ -31,75 +59,102 @@ const Vibeathon = () => {
   return (
     <>
       {/* HERO SECTION */}
-      <div
-        className="relative text-white min-h-screen font-sans overflow-hidden bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage: `url(${heroBg})`,
-        }}
-      >
-        <div className="absolute inset-0 bg-black/80 z-[1]" />
-
-        <div className="relative z-[2] min-h-screen flex items-center justify-center">
-          <div className="container mx-auto px-4 py-16 sm:py-24 min-w-[90%] relative">
+      <div className="relative text-white min-h-[85vh] flex items-center justify-center bg-transparent overflow-hidden w-full">
+        <div className="relative z-[2] w-full flex items-center justify-center">
+          <div className="container mx-auto px-4 py-8 sm:py-12 relative">
             <motion.div
-              className="text-center max-w-6xl mx-auto"
+              className="text-center max-w-5xl mx-auto"
               variants={staggerChildren}
               initial="hidden"
               animate="visible"
             >
               {/* TITLE */}
-              <motion.div variants={childVariants}>
-                <h1 className="text-5xl md:text-7xl lg:text-7xl font-extrabold tracking-tight mb-6 mt-12">
-                  <span className="bg-clip-text text-transparent bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-500">
-                    Ideas Made by Her.
+              <motion.div variants={childVariants} className="flex flex-col items-center justify-center">
+                <h1 className="font-sans text-5xl md:text-6xl font-black tracking-tight mb-4 mt-8 text-white leading-tight">
+                  Ideas Made by{" "}
+                  <span className="font-serif italic font-normal text-amber-400">
+                    Her
                   </span>
-
-                  <br />
-
-                  <span className="text-white">
-                    Impact Made by Us.
+                  .<br />
+                  Impact Made by{" "}
+                  <span className="font-serif italic font-normal text-amber-400">
+                    Us
                   </span>
+                  .
                 </h1>
 
-                <div className="h-2 w-32 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full mb-8" />
+                {/* Cursive Animated "SheVibes" Logo */}
+                <div className="text-amber-400 my-4 flex items-center justify-center min-h-[140px] w-full max-w-[460px]">
+                  <AMVibeathonEffect speed={0.9} className="w-full text-amber-400" />
+                </div>
+
+                <div className="h-0.5 w-16 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full mb-8" />
               </motion.div>
 
               {/* DESCRIPTION */}
               <motion.p
-                className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed"
+                className="text-lg text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
                 variants={childVariants}
               >
-                A women-focused vibeathon where fresh ideas meet
+                A women-focused SheVibes ideathon where fresh ideas meet
                 technology, creativity, and a community of women builders.
               </motion.p>
 
+              {/* COUNTDOWN TIMER */}
+              <motion.div variants={childVariants} className="flex justify-center items-center gap-3 my-8">
+                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+                  <span className="text-2xl font-black text-white">{timeLeft.days === 0 ? "S" : timeLeft.days}</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Days</span>
+                </div>
+                <span className="text-lg font-bold text-slate-500">:</span>
+                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+                  <span className="text-2xl font-black text-white">{timeLeft.hours === 0 ? "O" : timeLeft.hours}</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Hours</span>
+                </div>
+                <span className="text-lg font-bold text-slate-500">:</span>
+                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+                  <span className="text-2xl font-black text-white">{timeLeft.minutes === 0 ? "O" : timeLeft.minutes}</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Mins</span>
+                </div>
+                <span className="text-lg font-bold text-slate-500">:</span>
+                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+                  <span className="text-2xl font-black text-white">{timeLeft.seconds === 0 ? "N" : timeLeft.seconds}</span>
+                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Secs</span>
+                </div>
+              </motion.div>
+
               {/* REGISTRATION */}
               <motion.div
-                className="flex flex-wrap justify-center gap-4 mb-8"
+                className="flex flex-col items-center gap-4 mb-8"
                 variants={childVariants}
               >
-                <motion.a
-                  href="/register"
-                  className="bg-gradient-to-r from-yellow-400 to-amber-500 text-black px-8 py-4 rounded-lg font-bold text-lg hover:from-yellow-300 hover:to-amber-400 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Register Now
-                </motion.a>
+                <div className="comic-brutal-button-container">
+                  <a href="/register">
+                    <button className="comic-brutal-button">
+                      <div className="button-inner">
+                        <span className="button-text">Register Now</span>
+                        <div className="halftone-overlay"></div>
+                        <div className="ink-splatter"></div>
+                      </div>
+                      <div className="button-shadow"></div>
+                      <div className="button-frame"></div>
+                    </button>
+                  </a>
+                </div>
 
                 <motion.a
                   href="#learn-more"
-                  className="border-2 border-yellow-400 text-yellow-400 px-8 py-4 rounded-lg font-bold text-lg hover:bg-yellow-400 hover:text-black transition-all duration-300"
+                  className="text-xs uppercase tracking-widest text-slate-400 hover:text-white transition-colors mt-2"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Learn More
+                  Learn More &darr;
                 </motion.a>
               </motion.div>
 
               {/* PS */}
               <motion.p
-                className="text-sm md:text-base text-slate-400"
+                className="text-xs font-mono tracking-widest uppercase text-slate-500"
                 variants={childVariants}
               >
                 PS: To be announced

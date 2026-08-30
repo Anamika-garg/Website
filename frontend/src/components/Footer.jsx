@@ -26,8 +26,8 @@ const columnVariants = {
 
 const Footer = () => {
     return (
-        <footer className="relative w-full bg-[#2A2007] pt-16 pb-8 px-4 sm:px-6 lg:px-8 overflow-hidden">
-            <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent blur-md"></div>
+        <footer className="relative w-full bg-[#050507]/80 backdrop-blur-xl border-t border-white/5 pt-16 pb-8 px-6 sm:px-8 overflow-hidden z-20">
+            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-500/30 to-transparent"></div>
 
             <motion.div
                 className="container mx-auto max-w-7xl relative z-10"
@@ -39,62 +39,62 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
 
                     <motion.div variants={columnVariants} className="flex flex-col">
-                        <Link to={'/'} className="flex items-center gap-3 mb-4">
-                            <img src="/logo.png" className='h-10 w-10' alt="Assetmerkle Logo" />
-                            <span className="text-xl font-bold uppercase bg-clip-text text-transparent bg-gradient-to-r from-yellow-300 to-amber-500">
+                        <Link to={'/'} className="flex items-center gap-3 mb-4 group">
+                            <img src="/logo.png" className='h-8 w-8 transition-transform duration-300 group-hover:scale-110' alt="Assetmerkle Logo" />
+                            <span className="font-display text-lg font-bold uppercase tracking-wider bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-yellow-300">
                                 Assetmerkle
                             </span>
                         </Link>
-                        <p className="text-gray-400 mb-6 text-sm">
-                            The first Web3-based club at IGDTUW.
+                        <p className="text-slate-400 mb-6 text-sm leading-relaxed">
+                            The first Web3-based community at IGDTUW. Bridging building and blockchain.
                         </p>
-                        <div className="flex space-x-4">
-                            <a href='https://x.com/AM_igdtuw' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaXTwitter size={20} /></a>
-                            <a href='https://chat.whatsapp.com/Cp0ppTJBmOS4vgDze8XMPq' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaWhatsapp size={20} /></a>
-                            <a href='https://www.linkedin.com/company/assetmerkle-igdtuw/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaLinkedin size={20} /></a>
-                            <a href='https://www.instagram.com/assetmerkle.igdtuw/' target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-yellow-400 transition-colors duration-300"><FaInstagram size={20} /></a>
+                        <div className="flex space-x-3.5">
+                            <a href='https://x.com/AM_igdtuw' target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300"><FaXTwitter size={16} /></a>
+                            <a href='https://chat.whatsapp.com/Cp0ppTJBmOS4vgDze8XMPq' target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300"><FaWhatsapp size={16} /></a>
+                            <a href='https://www.linkedin.com/company/assetmerkle-igdtuw/' target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300"><FaLinkedin size={16} /></a>
+                            <a href='https://www.instagram.com/assetmerkle.igdtuw/' target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-slate-400 hover:text-amber-400 hover:border-amber-400/40 hover:bg-white/10 transition-all duration-300"><FaInstagram size={16} /></a>
                         </div>
                     </motion.div>
 
                     <motion.div variants={columnVariants}>
-                        <h3 className="text-lg font-semibold mb-4 text-white">Quick Links</h3>
-                        <ul className="space-y-3">
-                            <li><Link to={'/About'} className="footer-link">About</Link></li>
-                            <li><Link to={'/Event'} className="footer-link">Events</Link></li>
-                            <li><Link to={'/Team'} className="footer-link">Team</Link></li>
-                            <li><Link to={'/FAQ'} className="footer-link">FAQ</Link></li>
-                            <li><Link to={'/Docs'} className="footer-link">Docs</Link></li>
+                        <h3 className="font-display text-sm font-semibold mb-5 text-white uppercase tracking-wider">Quick Links</h3>
+                        <ul className="space-y-3.5">
+                            <li><Link to={'/'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">About</Link></li>
+                            <li><Link to={'/events'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">Events</Link></li>
+                            <li><Link to={'/team'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">Team</Link></li>
+                            <li><Link to={'/faq'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">FAQ</Link></li>
+                            <li><Link to={'/docs'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">Docs</Link></li>
                         </ul>
                     </motion.div>
 
                     <motion.div variants={columnVariants}>
-                        <h3 className="text-lg font-semibold mb-4 text-white">Partner with Us</h3>
-                        <ul className="space-y-3">
-                            <li><Link to={'/collaborate'} className="footer-link">Collaborate</Link></li>
-                            <li><Link to={'/sponsor'} className="footer-link">Sponsor Us</Link></li>
+                        <h3 className="font-display text-sm font-semibold mb-5 text-white uppercase tracking-wider">Partner with Us</h3>
+                        <ul className="space-y-3.5">
+                            <li><Link to={'/collaborate'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">Collaborate</Link></li>
+                            <li><Link to={'/sponsor'} className="text-slate-400 hover:text-amber-400 transition-colors duration-300 text-sm">Sponsor Us</Link></li>
                         </ul>
                     </motion.div>
 
                     <motion.div variants={columnVariants}>
-                        <h3 className="text-lg font-semibold mb-4 text-white">Get in Touch</h3>
-                        <a href="mailto:assetmerkle@gmail.com" className="text-yellow-400 hover:text-yellow-300 transition-colors duration-300 mb-4">
+                        <h3 className="font-display text-sm font-semibold mb-5 text-white uppercase tracking-wider">Get in Touch</h3>
+                        <a href="mailto:assetmerkle@gmail.com" className="text-amber-400 hover:text-amber-300 transition-colors duration-300 text-sm font-medium">
                             assetmerkle@gmail.com
                         </a>
                         <form className="relative flex items-center mt-6">
                             <input
                                 type="email"
                                 placeholder="Your email"
-                                className="w-full bg-black/20 border border-white/20 rounded-lg px-4 py-2 text-white placeholder-gray-400 transition-all duration-300 pr-12"
+                                className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-2.5 text-white placeholder-slate-500 text-sm focus:outline-none focus:border-amber-500/40 focus:ring-1 focus:ring-amber-500/40 transition-all duration-300 pr-12"
                             />
-                            <button type="submit" aria-label="Subscribe" className="absolute right-0 h-full w-12 flex items-center justify-center text-gray-400 hover:text-black hover:bg-yellow-400 rounded-r-lg transition-all duration-300">
-                                <BsFillSendFill size={18} />
+                            <button type="submit" aria-label="Subscribe" className="absolute right-0 h-full w-12 flex items-center justify-center text-slate-400 hover:text-black hover:bg-amber-400 rounded-r-lg transition-all duration-300">
+                                <BsFillSendFill size={16} />
                             </button>
                         </form>
                     </motion.div>
                 </div>
 
-                <motion.div variants={columnVariants} className="border-t border-white/10 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center text-center">
-                    <p className="text-gray-500 text-sm">
+                <motion.div variants={columnVariants} className="border-t border-white/5 pt-8 mt-8 flex flex-col sm:flex-row justify-between items-center text-center">
+                    <p className="text-slate-500 text-xs">
                         Assetmerkle © {new Date().getFullYear()} . All rights reserved.
                     </p>
                 </motion.div>

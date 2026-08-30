@@ -1,5 +1,13 @@
 import React, { useState } from "react";
 
+const handleCardMouseMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+};
+
 const FAQs = () => {
   const [openIndex, setOpenIndex] = useState(null);
 
@@ -7,7 +15,7 @@ const FAQs = () => {
     {
       question: "Who can participate?",
       answer:
-        "Vibeathon is open exclusively to IGDTUW students who are excited about technology, innovation, and building solutions. Beginners and freshers are absolutely welcome!",
+        "SheVibes is open exclusively to IGDTUW students who are excited about technology, innovation, and building solutions. Beginners and freshers are absolutely welcome!",
     },
 
     {
@@ -17,15 +25,15 @@ const FAQs = () => {
     },
 
     {
-      question: "Is Vibeathon only for women?",
+      question: "Is SheVibes only for women?",
       answer:
-        "Vibeathon is a women-focused ideathon created to encourage and empower women to explore technology, build ideas, and connect with other aspiring innovators.",
+        "SheVibes is a women-focused ideathon created to encourage and empower women to explore technology, build ideas, and connect with other aspiring innovators.",
     },
 
     {
       question: "Can freshers participate?",
       answer:
-        "Absolutely! Vibeathon is designed to be beginner-friendly, so you don’t need prior hackathon experience to participate.",
+        "Absolutely! SheVibes is designed to be beginner-friendly, so you don’t need prior hackathon experience to participate.",
     },
 
     {
@@ -79,7 +87,7 @@ const FAQs = () => {
     {
       question: "I’m new to hackathons. Should I still participate?",
       answer:
-        "100%. Vibeathon is about having an idea, learning, and building—not about already knowing everything. Come curious. We’ll take it from there.",
+        "100%. SheVibes is about having an idea, learning, and building—not about already knowing everything. Come curious. We’ll take it from there.",
     },
   ];
 
@@ -90,32 +98,30 @@ const FAQs = () => {
   return (
     <div
       id="learn-more"
-      className="min-h-screen bg-black py-16 px-4 sm:px-6 lg:px-8"
+      className="py-24 px-4 sm:px-6 lg:px-8 bg-transparent w-full"
     >
       <div className="max-w-4xl mx-auto">
-        <h1
-          className="text-5xl sm:text-6xl font-bold text-center mb-16"
-          style={{ color: "#F5A623" }}
-        >
-          Frequently Asked Questions
-        </h1>
+        <h2 className="font-sans text-3xl sm:text-5xl font-black text-center mb-16 text-white tracking-tight">
+          Frequently Asked <span className="font-serif italic font-normal text-amber-400">Questions</span>
+        </h2>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="border-b border-gray-700 pb-4 transition-transform duration-200 hover:scale-[1.02]"
+              onMouseMove={handleCardMouseMove}
+              className="group bg-white/[0.03] backdrop-blur-md rounded-2xl border border-white/10 p-6 transition-all duration-300 spotlight-card"
             >
               <button
                 onClick={() => toggleFAQ(index)}
-                className="w-full flex justify-between items-center text-left py-4 focus:outline-none group"
+                className="w-full flex justify-between items-center text-left focus:outline-none group cursor-pointer"
               >
-                <span className="text-xl sm:text-2xl font-normal text-white pr-8">
+                <span className="text-lg sm:text-xl font-bold text-white pr-8">
                   {faq.question}
                 </span>
 
                 <svg
-                  className={`w-6 h-6 text-gray-400 transition-transform duration-300 ease-in-out flex-shrink-0 ${
+                  className={`w-5 h-5 text-gray-400 transition-transform duration-300 ease-in-out flex-shrink-0 ${
                     openIndex === index ? "transform rotate-180" : ""
                   }`}
                   fill="none"
@@ -144,7 +150,7 @@ const FAQs = () => {
                       : "ease-out",
                 }}
               >
-                <p className="text-base sm:text-lg text-gray-300 leading-relaxed pt-2 pb-4">
+                <p className="text-sm sm:text-base text-slate-300 leading-relaxed pt-4 font-light">
                   {faq.answer}
                 </p>
               </div>

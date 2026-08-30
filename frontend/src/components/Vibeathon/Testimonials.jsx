@@ -1,5 +1,13 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+
+const handleCardMouseMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+};
 
 const Prizes = () => {
   const tests = [
@@ -9,7 +17,7 @@ const Prizes = () => {
       x_id: "Top 6",
       rank: "Community Opportunity",
       quote:
-        "The Top 6 teams get an opportunity to enter our Web3 community.\n\nContinue learning, building, and collaborating beyond Vibeathon.",
+        "The Top 6 teams get an opportunity to enter our Web3 community.\n\nContinue learning, building, and collaborating beyond SheVibes.",
     },
 
     {
@@ -25,7 +33,7 @@ const Prizes = () => {
       id: 3,
       name: "🚀 Keep Building",
       x_id: "Keep Building",
-      rank: "Beyond Vibeathon",
+      rank: "Beyond SheVibes",
       quote:
         "Connect with fellow builders, explore Web3, and be part of a community that keeps your ideas moving.",
     },
@@ -105,24 +113,15 @@ const Prizes = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-16 overflow-hidden">
+    <div className="flex items-center justify-center px-4 py-20 overflow-hidden bg-transparent w-full">
       <div className="max-w-7xl w-full">
 
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2
-            className="text-5xl font-bold mb-2"
-            style={{ color: "oklch(82.8% 0.189 84.429)" }}
-          >
-            Vibeathon Benefits
+        <div className="text-center mb-20">
+          <h2 className="font-sans text-3xl md:text-5xl font-black text-center mb-4 text-white tracking-tight">
+            SheVibes <span className="font-serif italic font-normal text-amber-400">Benefits</span>
           </h2>
-
-          <div
-            className="w-20 h-1 mx-auto"
-            style={{
-              backgroundColor: "oklch(41.4% 0.112 45.904)",
-            }}
-          />
+          <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-amber-500 mx-auto rounded-full" />
         </div>
 
         {/* Carousel */}
@@ -145,28 +144,20 @@ const Prizes = () => {
                   className="w-full lg:w-1/3 flex-shrink-0 px-3"
                 >
                   <div
-                    className={`rounded-3xl p-8 min-h-[440px] flex flex-col border transition-all duration-700 ${
+                    onMouseMove={handleCardMouseMove}
+                    className={`rounded-3xl p-8 min-h-[440px] flex flex-col border border-white/10 transition-all duration-700 bg-white/[0.08] backdrop-blur-md spotlight-card ${
                       isActive
-                        ? "scale-100 opacity-100"
-                        : "scale-90 opacity-40 blur-[1px]"
+                        ? "scale-100 opacity-100 border-amber-400/30"
+                        : "scale-90 opacity-30 blur-[1px]"
                     }`}
-                    style={{
-                      borderColor:
-                        "oklch(60% 0.189 84.429 / 0.3)",
-                      backgroundColor:
-                        "oklch(25% 0.02 255.508 / 0.3)",
-                      boxShadow: isActive
-                        ? "0 20px 40px -20px oklch(60% 0.189 84.429 / 0.4)"
-                        : "none",
-                    }}
                   >
                     {/* Header */}
                     <div className="mb-6">
-                      <p className="text-xs font-bold tracking-widest uppercase text-orange-400 mb-1">
+                      <p className="text-[10px] font-bold tracking-widest uppercase text-amber-400 mb-2">
                         {item.rank}
                       </p>
 
-                      <h2 className="text-3xl font-black text-white">
+                      <h2 className="text-2xl font-extrabold text-white">
                         {item.x_id}
                       </h2>
                     </div>
@@ -174,20 +165,15 @@ const Prizes = () => {
                     <div className="w-full h-px bg-white/10 mb-6" />
 
                     {/* Description */}
-                    <p
-                      className="mb-6 flex-grow leading-relaxed whitespace-pre-line text-sm"
-                      style={{
-                        color: "oklch(92.9% 0.013 255.508)",
-                      }}
-                    >
+                    <p className="mb-6 flex-grow leading-relaxed whitespace-pre-line text-sm text-slate-300 font-light">
                       {item.quote}
                     </p>
 
-                    <div className="w-12 h-0.5 bg-orange-400 mb-4" />
+                    <div className="w-12 h-px bg-amber-400 mb-4" />
 
                     {/* Footer */}
                     <div>
-                      <h3 className="text-white text-lg font-semibold">
+                      <h3 className="text-white text-base font-semibold">
                         {item.name}
                       </h3>
                     </div>
@@ -201,9 +187,9 @@ const Prizes = () => {
           <div className="flex items-center justify-center gap-6 mt-16">
             <button
               onClick={handlePrev}
-              className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white"
+              className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white cursor-pointer"
             >
-              <ChevronLeft size={24} />
+              <ChevronLeft size={20} />
             </button>
 
             <div className="flex gap-3">
@@ -215,10 +201,10 @@ const Prizes = () => {
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index + 1)}
-                    className={`h-2 rounded-full transition-all duration-500 ${
+                    className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
                       index === realIndex
-                        ? "w-10 bg-orange-400"
-                        : "w-2 bg-gray-600 hover:bg-gray-400"
+                        ? "w-8 bg-amber-400"
+                        : "w-1.5 bg-gray-600 hover:bg-gray-400"
                     }`}
                   />
                 );
@@ -227,9 +213,9 @@ const Prizes = () => {
 
             <button
               onClick={handleNext}
-              className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white"
+              className="rounded-full p-3 border border-white/10 hover:bg-white/10 transition-colors text-white cursor-pointer"
             >
-              <ChevronRight size={24} />
+              <ChevronRight size={20} />
             </button>
           </div>
         </div>
