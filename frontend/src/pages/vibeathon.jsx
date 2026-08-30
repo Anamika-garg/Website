@@ -8,11 +8,10 @@ import Glimpses from "../components/Vibeathon/Glimpses";
 import RoundsTimeline from "../components/Vibeathon/RoundsTimeline";
 const VibeathonPage = () => {
   return (
-    <div className="top-[-90px] relative pt-24">
+    <div className="relative pt-16 sm:pt-20 pb-12 bg-transparent min-h-screen">
       <AMHacks />
       {/* <Themes/> */}
       <RoundsTimeline />
-      <Tagline/>
       <Prizes />
       {/* <Glimpses /> */}
       <FAQs />

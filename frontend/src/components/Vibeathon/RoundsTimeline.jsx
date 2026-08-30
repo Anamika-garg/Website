@@ -1,5 +1,13 @@
 import { motion } from "framer-motion";
 
+const handleCardMouseMove = (e) => {
+  const rect = e.currentTarget.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+  e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+};
+
 /* Single round item */
 const RoundItem = ({ round, index }) => {
   const isRight = index % 2 !== 0;
@@ -30,20 +38,21 @@ const RoundItem = ({ round, index }) => {
           viewport={{ once: true }}
         >
           <div className="relative group">
-            <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-yellow-500/30 via-yellow-400/10 to-yellow-500/30 opacity-0 group-hover:opacity-100 blur-md transition duration-300" />
-
-            <div className="relative p-7 rounded-xl bg-black border border-gray-700/70 transition-all duration-300 group-hover:border-yellow-500/60 group-hover:-translate-y-2">
-              <h3 className="text-xl font-extrabold text-yellow-400 tracking-wide">
+            <div
+              onMouseMove={handleCardMouseMove}
+              className="relative p-7 rounded-xl bg-white/[0.04] backdrop-blur-md border border-white/10 transition-all duration-300 group-hover:border-amber-400/40 group-hover:-translate-y-2 spotlight-card"
+            >
+              <h3 className="text-xl font-extrabold text-white tracking-wide">
                 {round.title}
               </h3>
 
               {round.subtitle && (
-                <p className="text-xs uppercase tracking-widest text-gray-400 mt-1">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mt-1 font-semibold">
                   {round.subtitle}
                 </p>
               )}
 
-              <p className="text-gray-300 mt-4 leading-relaxed text-sm sm:text-base opacity-90 whitespace-pre-line">
+              <p className="text-gray-300 mt-4 leading-relaxed text-sm sm:text-base opacity-90 whitespace-pre-line font-light">
                 {round.description}
               </p>
             </div>
@@ -60,10 +69,10 @@ const RoundItem = ({ round, index }) => {
         >
           <div className="relative">
             <motion.div
-              className="absolute inset-0 rounded-full bg-yellow-500 opacity-30 blur-lg"
+              className="absolute inset-0 rounded-full bg-yellow-500 opacity-20 blur-lg"
               animate={{
                 scale: [1, 1.6, 1],
-                opacity: [0.2, 0.5, 0.2],
+                opacity: [0.1, 0.3, 0.1],
               }}
               transition={{
                 duration: 2.5,
@@ -111,20 +120,21 @@ const RoundItem = ({ round, index }) => {
           </p>
 
           <div className="relative group">
-            <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-yellow-500/30 via-yellow-400/10 to-yellow-500/30 opacity-0 group-hover:opacity-100 blur-md transition duration-300" />
-
-            <div className="relative p-6 rounded-xl bg-black border border-gray-700/70 transition-all duration-300 group-hover:border-yellow-500/60">
-              <h3 className="text-lg font-extrabold text-yellow-400 tracking-wide">
+            <div
+              onMouseMove={handleCardMouseMove}
+              className="relative p-6 rounded-xl bg-white/[0.04] backdrop-blur-md border border-white/10 transition-all duration-300 group-hover:border-amber-400/40 spotlight-card"
+            >
+              <h3 className="text-lg font-extrabold text-white tracking-wide">
                 {round.title}
               </h3>
 
               {round.subtitle && (
-                <p className="text-xs uppercase tracking-widest text-gray-400 mt-1">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mt-1 font-semibold">
                   {round.subtitle}
                 </p>
               )}
 
-              <p className="text-gray-300 mt-4 leading-relaxed text-sm opacity-90 whitespace-pre-line">
+              <p className="text-gray-300 mt-4 leading-relaxed text-sm opacity-90 whitespace-pre-line font-light">
                 {round.description}
               </p>
             </div>
@@ -167,23 +177,20 @@ Shortlisted teams will get the opportunity to present their refined ideas and ta
   ];
 
   return (
-    <section className="tagline-section relative overflow-hidden">
-      <div className="gradient-bg" />
-      <div className="particles" />
-
+    <section className="relative overflow-hidden bg-transparent">
       <div className="relative z-10 mt-28 mb-28 sm:mb-36 lg:mb-44">
         <div className="text-center mb-24">
-          <h2 className="text-3xl sm:text-4xl font-bold text-yellow-400">
-            Vibeathon Rounds
+          <h2 className="font-sans text-3xl sm:text-4xl font-black text-white tracking-tight">
+            SheVibes <span className="font-serif italic font-normal text-amber-400">Rounds</span>
           </h2>
 
-          <p className="text-gray-400 mt-4 max-w-2xl mx-auto">
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto font-light">
             A step-by-step journey from idea submission to mentorship and
             the grand finale.
           </p>
         </div>
 
-        <div className="hidden lg:block absolute top-44 left-1/2 w-[2px] h-full bg-gradient-to-b from-gray-700 via-yellow-500/30 to-gray-700 transform -translate-x-1/2" />
+        <div className="hidden lg:block absolute top-48 bottom-48 left-1/2 w-[2px] bg-gradient-to-b from-gray-700 via-yellow-500/20 to-gray-700 transform -translate-x-1/2" />
 
         {rounds.map((round, index) => (
           <RoundItem
@@ -198,5 +205,3 @@ Shortlisted teams will get the opportunity to present their refined ideas and ta
 };
 
 export default RoundsTimeline;
-
-

@@ -1,21 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Plus+Jakarta+Sans:wght@200..800&family=Geist+Mono:wght@100..900&family=Great+Vibes&display=swap');
 @import "tailwindcss";
 
-html,body{
+@theme {
+  --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-display: 'Plus Jakarta Sans', sans-serif;
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-mono: 'Geist Mono', monospace;
+  --font-cursive: 'Great Vibes', cursive;
+}
+
+html,body {
   margin: 0;
   padding: 0;
-  overflow-x : hidden;
-  /* background: radial-gradient(
-    circle at left,
-    #010101,
-    #010101,
-    #010101,
-    #0f012b,
-    #fbb424
-  ); */
-  background: #000;
+  overflow-x: hidden;
+  background: #050507;
+  font-family: var(--font-sans);
+  color: #f8fafc;
 }
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #050507;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(246, 180, 51, 0.4) 0%, rgba(246, 180, 51, 0.1) 100%);
+  border-radius: 4px;
+  border: 1px solid #050507;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(246, 180, 51, 0.7) 0%, rgba(246, 180, 51, 0.3) 100%);
+}
+
+/* Premium Selection */
+::selection {
+  background: rgba(246, 180, 51, 0.25);
+  color: #ffffff;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0px rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(246, 180, 51, 0.25);
+  box-shadow: 0 12px 40px rgba(246, 180, 51, 0.05), inset 0 1px 0px rgba(255, 255, 255, 0.08);
 }
 
 
@@ -82,7 +132,7 @@ html {
   justify-content: center;
   align-items: center;
   z-index: 9999;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-mono), monospace;
 }
 
 .blockchain-animation {
@@ -91,7 +141,7 @@ html {
   margin-bottom: 2rem;
 }
 
-.block {
+.preloader-block {
   width: 50px;
   height: 50px;
   background-color: rgba(255, 198, 64, 0.1); /* Gold theme color */
@@ -101,7 +151,7 @@ html {
   position: relative;
 }
 
-.block::before {
+.preloader-block::before {
   content: '';
   position: absolute;
   inset: 4px;
@@ -122,5 +172,353 @@ html {
   letter-spacing: 0.1em;
   height: 20px; /* Reserve space to prevent layout shift */
   text-align: center;
+}
+
+.spotlight-card {
+  position: relative;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(7, 213, 244, 0.12),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.spotlight-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    250px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
+    rgba(7, 213, 244, 0.35),
+    transparent 80%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.spotlight-card:hover::before,
+.spotlight-card:hover::after {
+  opacity: 1;
+}
+
+/* Ensure inner content renders above the spotlight overlays */
+.spotlight-card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* 3D Tactile Action Button (Pill Version) */
+.vibeathon-btn {
+  display: inline-block;
+  background-color: #050507;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 9999px;
+  height: 32px;
+  width: 140px;
+  position: relative;
+  text-decoration: none;
+}
+
+.vibeathon-btn .vibeathon-span {
+  position: absolute;
+  inset: -1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #212121;
+  border-radius: 9999px;
+  color: #fff;
+  border: 1px solid #fff;
+  box-shadow: 0 3px 0 0 #fff;
+  transition: transform 0.15s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.15s ease;
+  user-select: none;
+}
+
+.vibeathon-btn:hover .vibeathon-span {
+  transform: translateY(3px);
+  box-shadow: 0 0 0 0 #fff;
+}
+
+/* Comic Brutalist Button Styling */
+.comic-brutal-button-container {
+  --primary-color: #ff3d3d;
+  --secondary-color: #3d3dff;
+  --text-color: #000000;
+  --accent-color: #ffef00;
+  --panel-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em;
+}
+
+.comic-brutal-button {
+  position: relative;
+  font-size: 1.2em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  transform: rotate(-2deg);
+  transform-origin: center;
+  transition: transform 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.button-inner {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary-color);
+  color: var(--text-color);
+  padding: 0.8em 1.5em;
+  z-index: 3;
+  overflow: hidden;
+  transform: skew(-3deg, 1deg);
+  transition: transform 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
+  clip-path: polygon(
+    0% 10%,
+    3% 0%,
+    97% 0%,
+    100% 10%,
+    100% 90%,
+    97% 100%,
+    3% 100%,
+    0% 90%
+  );
+}
+
+.button-text {
+  position: relative;
+  font-weight: 900;
+  font-size: 1.1em;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  z-index: 5;
+  color: var(--text-color);
+  text-shadow:
+    0.05em 0.05em 0 var(--panel-color),
+    -0.05em -0.05em 0 var(--panel-color),
+    0.05em -0.05em 0 var(--panel-color),
+    -0.05em 0.05em 0 var(--panel-color);
+  transform: rotate(2deg);
+}
+
+.button-frame {
+  position: absolute;
+  top: -0.3em;
+  left: -0.3em;
+  right: -0.3em;
+  bottom: -0.3em;
+  background-color: var(--accent-color);
+  border: 0.15em solid var(--text-color);
+  z-index: 1;
+  transition: transform 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.button-shadow {
+  position: absolute;
+  top: 0.4em;
+  left: 0.4em;
+  right: -0.4em;
+  bottom: -0.4em;
+  background-color: var(--shadow-color);
+  z-index: 0;
+  transition: all 0.15s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.halftone-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(
+    circle at 30% 30%,
+    rgba(0, 0, 0, 0.2) 0.1em,
+    transparent 0.1em
+  );
+  background-size: 0.5em 0.5em;
+  background-position: 0 0;
+  opacity: 0.3;
+  z-index: 2;
+  mix-blend-mode: multiply;
+}
+
+.ink-splatter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  background: radial-gradient(
+      circle at 20% 30%,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.08) 20%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 70% 65%,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.08) 25%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 40% 50%,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.08) 30%,
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(0, 0, 0, 0.15) 0%,
+      rgba(0, 0, 0, 0.08) 15%,
+      transparent 40%
+    );
+}
+
+.comic-brutal-button:hover {
+  transform: rotate(-1deg) scale(1.05);
+}
+
+.comic-brutal-button:hover .button-inner {
+  transform: skew(-5deg, 2deg);
+  background-color: var(--secondary-color);
+}
+
+.comic-brutal-button:hover .button-text {
+  color: var(--panel-color);
+  text-shadow:
+    0.05em 0.05em 0 var(--text-color),
+    -0.05em -0.05em 0 var(--text-color),
+    0.05em -0.05em 0 var(--text-color),
+    -0.05em 0.05em 0 var(--text-color);
+}
+
+.comic-brutal-button:hover .button-shadow {
+  transform: translate(0.2em, 0.2em);
+}
+
+.comic-brutal-button:hover .ink-splatter {
+  opacity: 1;
+}
+
+.comic-brutal-button:focus {
+  outline: none;
+}
+
+.comic-brutal-button:focus .button-frame {
+  border-color: var(--secondary-color);
+}
+
+.comic-brutal-button:active {
+  transform: rotate(0) scale(0.98);
+}
+
+.comic-brutal-button:active .button-inner {
+  transform: skew(0, 0);
+}
+
+.comic-brutal-button:active .button-shadow {
+  transform: translate(0.1em, 0.1em);
+}
+
+@keyframes burst {
+  0% { transform: scale(0.95); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+.comic-brutal-button:active .button-text {
+  animation: burst 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.comic-brutal-button:focus::after {
+  content: "";
+  position: absolute;
+  top: -0.5em;
+  left: -0.5em;
+  right: -0.5em;
+  bottom: -0.5em;
+  border: 0.15em dashed var(--text-color);
+  z-index: 0;
+  animation: dash 1s linear infinite;
+  pointer-events: none;
+}
+
+.comic-brutal-button::before {
+  content: "";
+  position: absolute;
+  top: 0.4em;
+  left: 0.8em;
+  width: 1em;
+  height: 1em;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.comic-brutal-button:hover::before {
+  opacity: 0.7;
+}
+
+@keyframes action-lines {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+}
+
+.comic-brutal-button:active::before {
+  content: "";
+  position: absolute;
+  top: -1em;
+  left: -1em;
+  right: -1em;
+  bottom: -1em;
+  background-image: radial-gradient(var(--text-color) 0%, transparent 70%),
+    repeating-conic-gradient(
+      transparent 0%,
+      transparent 5%,
+      var(--text-color) 5%,
+      var(--text-color) 6%
+    );
+  opacity: 0;
+  z-index: 6;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  animation: action-lines 0.5s ease-out forwards;
 }
 

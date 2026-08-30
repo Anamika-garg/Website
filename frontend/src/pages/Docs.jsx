@@ -267,21 +267,57 @@ const AnimatedBackground = () => {
   return <canvas ref={canvasRef} className="absolute top-0 left-0 w-full h-full z-0" />;
 };
 
-// Card for displaying a single resource
-const ResourceCard = ({ title, description, link, type }) => (
-  <a
-    href={link}
-    target="_blank"
-    rel="noopener noreferrer"
-    className="flex flex-col bg-gray-900/70 backdrop-blur-sm border border-yellow-500/20 p-6 rounded-lg hover:bg-gray-800/80 hover:border-yellow-500/60 transition-all duration-300 transform hover:-translate-y-1 group"
-  >
-    <h3 className="text-lg font-bold text-gray-100 mb-3 break-words group-hover:text-yellow-400 transition-colors flex items-center">
-      {type === 'blog' ? <BookIcon /> : <PlayIcon />}
-      <span className="flex-1">{title}</span>
-    </h3>
-    <p className="text-gray-400 flex-grow break-words text-sm">{description}</p>
-  </a>
-);
+// Card for displaying a single resource (3D Tilt Version)
+const ResourceCard = ({ title, description, link, type }) => {
+  const cardRef = React.useRef(null);
+  const [style, setStyle] = React.useState({});
+
+  const handleMouseMove = (e) => {
+    if (!cardRef.current) return;
+    const { clientX, clientY } = e;
+    const { left, top, width, height } = cardRef.current.getBoundingClientRect();
+    const x = clientX - left;
+    const y = clientY - top;
+    const rotateX = ((y / height) - 0.5) * -12; // Max 12deg rotation
+    const rotateY = ((x / width) - 0.5) * 12;
+
+    cardRef.current.style.setProperty("--mouse-x", `${x}px`);
+    cardRef.current.style.setProperty("--mouse-y", `${y}px`);
+
+    setStyle({
+      transform: `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`,
+    });
+  };
+
+  const handleMouseLeave = () => {
+    setStyle({
+      transform: 'perspective(600px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
+    });
+  };
+
+  return (
+    <a
+      ref={cardRef}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        ...style,
+        transformStyle: 'preserve-3d',
+        transition: 'transform 0.15s ease-out',
+      }}
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex flex-col bg-white/[0.02] backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-lg hover:border-amber-500/40 hover:bg-white/[0.04] transition-all duration-300 group spotlight-card"
+    >
+      <h3 className="font-display text-base font-bold text-slate-100 mb-3 break-words group-hover:text-amber-300 transition-colors flex items-center gap-2.5 [transform:translateZ(20px)]">
+        {type === 'blog' ? <BookIcon /> : <PlayIcon />}
+        <span className="flex-1">{title}</span>
+      </h3>
+      <p className="text-slate-400 flex-grow break-words text-sm leading-relaxed font-light [transform:translateZ(10px)]">{description}</p>
+    </a>
+  );
+};
 
 
 // --- Main App Component ---
@@ -292,45 +328,44 @@ export default function Docs() {
   const TabButton = ({ id, label }) => (
     <button
       onClick={() => setActiveTab(id)}
-      className={`px-6 py-2 text-md font-semibold rounded-t-lg transition-colors duration-300 relative border-b-2 ${activeTab === id
-        ? 'text-yellow-300 border-yellow-400'
-        : 'text-gray-400 border-transparent hover:text-yellow-300'
-        }`}
+      className={`px-5 py-2 text-xs font-display font-bold uppercase tracking-wider rounded-full transition-all duration-300 relative cursor-pointer ${
+        activeTab === id
+          ? 'text-slate-950 bg-amber-400 shadow-md shadow-amber-500/10'
+          : 'text-slate-400 hover:text-white hover:bg-white/5'
+      }`}
     >
       {label}
     </button>
   );
 
   return (
-    <div className="relative min-h-screen bg-black text-white font-sans overflow-x-hidden">
+    <div className="relative min-h-screen bg-transparent text-white font-sans overflow-x-hidden">
       {/* <AnimatedBackground /> */}
-      <main className="relative z-10 container mx-auto px-4 py-16 md:py-24 mt-16">
+      <main className="relative z-10 container mx-auto px-4 py-16 md:py-24 mt-28 md:mt-32">
         <header className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-amber-500 text-5xl">
-              Web3 Learning
-            </span>
+          <h1 className="font-sans text-3xl md:text-5xl font-black mb-4 mt-20 text-white tracking-tight">
+            Web3 Learning <span className="font-serif italic font-normal text-amber-400">Docs</span>
           </h1>
-          <p className="text-md md:text-lg text-gray-400 max-w-2xl mx-auto">
+          <p className="text-sm md:text-base text-slate-400 max-w-xl mx-auto font-light leading-relaxed">
             Your curated guide to mastering the decentralized web. Select your experience level to begin.
           </p>
         </header>
 
-        <div className="flex justify-center border-b border-gray-800 mb-12">
+        <div className="flex justify-center gap-1.5 p-1.5 bg-white/[0.02] border border-white/10 rounded-full max-w-xs mx-auto mb-16 backdrop-blur-md">
           <TabButton id="beginner" label="Beginner" />
           <TabButton id="intermediate" label="Intermediate" />
           <TabButton id="expert" label="Expert" />
         </div>
 
-        <div className="max-w-6xl mx-auto bg-black/30 backdrop-blur-md p-4 sm:p-8 rounded-xl border border-gray-800">
+        <div className="max-w-6xl mx-auto bg-white/[0.01] backdrop-blur-md p-6 sm:p-10 rounded-2xl border border-white/10 shadow-2xl">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-3">{activeData.title}</h2>
-            <p className="text-gray-400 max-w-2xl mx-auto">{activeData.description}</p>
+            <h2 className="font-display text-2xl font-bold text-white mb-3">{activeData.title}</h2>
+            <p className="text-slate-400 text-sm font-light leading-relaxed max-w-2xl mx-auto">{activeData.description}</p>
           </div>
 
           {/* Blogs Section */}
           <section className="mb-16">
-            <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Blogs & Articles</h3>
+            <h3 className="font-display text-lg font-bold pb-3 mb-8 text-slate-200 border-b border-white/5">Blogs & Articles</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {activeData.blogs.map((item) => (
                 <ResourceCard key={item.link} {...item} type="blog" />
@@ -340,7 +375,7 @@ export default function Docs() {
 
           {/* Videos Section */}
           <section className="mb-16">
-            <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">Videos & Tutorials</h3>
+            <h3 className="font-display text-lg font-bold pb-3 mb-8 text-slate-200 border-b border-white/5">Videos & Tutorials</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {activeData.videos.map((item) => (
                 <ResourceCard key={item.link} {...item} type="video" />
@@ -349,14 +384,14 @@ export default function Docs() {
           </section>
 
           {/* GitHub Projects Section */}
-            <section>
-              <h3 className="text-2xl font-semibold pb-3 mb-8 text-gray-200 border-b-2 border-yellow-500/30">GitHub Projects</h3>
-              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {activeData.githubProjects.map((item) => (
-                  <ResourceCard key={item.link} {...item} type="github" />
-                ))}
-              </div>
-            </section>
+          <section>
+            <h3 className="font-display text-lg font-bold pb-3 mb-8 text-slate-200 border-b border-white/5">GitHub Projects</h3>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {activeData.githubProjects.map((item) => (
+                <ResourceCard key={item.link} {...item} type="github" />
+              ))}
+            </div>
+          </section>
           
         </div>
       </main>

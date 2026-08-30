@@ -295,7 +295,7 @@ const Registration = () => {
   if (phase === "signin") {
     return (
       <PageShell
-        eyebrow="AM VibeAthon 2.0"
+        eyebrow="SheVibes"
         title="Register to Participate"
         subtitle="Sign in with Google to get started. Your college email works best."
       >
@@ -315,7 +315,7 @@ const Registration = () => {
           {busy ? "Redirecting..." : "Continue with Google"}
         </motion.button>
         <p className="text-center text-xs text-gray-500 mt-6">
-          By continuing you agree to be contacted about AM VibeAthon 2.0.
+          By continuing you agree to be contacted about SheVibes.
         </p>
       </PageShell>
     );

@@ -1,50 +1,11 @@
-/* Add this new CSS to your main stylesheet and remove the old one. */
+/* Events and Web3Community container styles - cleared to let the global interactive DotField background shine through */
 
-/* Keyframes to animate the stars scrolling vertically */
-@keyframes animateStars {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-2200px);
-  }
-}
-
-/* The main container class that will have the black background */
 .black-star-bg {
-  background-color: #000;
-  position: relative; /* This is crucial for positioning the stars */
-  overflow: hidden;   /* This hides the stars when they move outside the container */
+  background-color: transparent;
+  position: relative;
+  overflow: hidden;
 }
 
-/* This pseudo-element creates the star layers. We use multiple radial-gradients
- for different star sizes to create a parallax/depth effect.
-*/
-.black-star-bg::before {
-  content: '';
-  position: fixed; /* Use fixed to keep stars visible during scroll */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0; /* Cover full viewport height */
-  height: 4000px; /* Make starfield tall enough for seamless loop */
-  z-index: 0; /* Place the stars behind the main content */
-
-  /* A pattern of white dots (stars) on a transparent background */
-  background-image: 
-    radial-gradient(1px, rgba(255, 255, 255, 0.8), transparent),
-    radial-gradient(1.5px, rgba(255, 255, 255, 0.5), transparent);
-  
-  /* Different sizes create a parallax effect */
-  background-size: 60px 60px, 110px 110px;
-  
-  /* Apply the slow scrolling animation */
-  animation: animateStars 100s linear infinite;
-}
-
-/* This ensures your main content (the <main> tag) sits on top of the
-  starry background, which is on the ::before pseudo-element.
-*/
 .black-star-bg > main {
     position: relative;
     z-index: 1;
