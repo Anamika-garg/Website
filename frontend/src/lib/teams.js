@@ -479,3 +479,17 @@ export async function fetchMyTeam(userId) {
     members: formattedMembers,
   };
 }
+
+// ============================================================
+// REGISTRATION COUNT
+// ============================================================
+
+export async function fetchRegistrationCount() {
+  const { data, error } = await supabase.rpc("get_registration_count");
+
+  if (error) {
+    throw error;
+  }
+
+  return Number(data) || 0;
+}
