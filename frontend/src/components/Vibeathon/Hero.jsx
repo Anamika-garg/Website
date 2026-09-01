@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { AMVibeathonEffect } from "@/components/ui/apple-hello-effect";
+import { fetchRegistrationCount } from "@/lib/teams";
 
 const Vibeathon = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -9,6 +10,9 @@ const Vibeathon = () => {
     minutes: 0,
     seconds: 0
   });
+
+  const [registrationCount, setRegistrationCount] = useState(0); 
+
 
   useEffect(() => {
     const registrationDeadline = new Date('2026-02-10T23:59:59').getTime();
@@ -37,6 +41,19 @@ const Vibeathon = () => {
     const interval = setInterval(updateCountdown, 1000);
 
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const getRegistrationCount = async () => {
+      try {
+        const count = await fetchRegistrationCount();
+        setRegistrationCount(count);
+      } catch (error) {
+        console.error("Failed to fetch registration count:", error);
+      }
+    };
+
+    getRegistrationCount();
   }, []);
 
   const staggerChildren = {
@@ -128,6 +145,17 @@ const Vibeathon = () => {
                 className="flex flex-col items-center gap-4 mb-8"
                 variants={childVariants}
               >
+                {/* REGISTRATION COUNT */}
+                <div className="flex flex-col items-center mb-1">
+                  <span className="text-3xl font-black text-white">
+                    {registrationCount}+
+                  </span>
+
+                  <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold">
+                    Women already registered
+                  </span>
+                </div>
+
                 <div className="comic-brutal-button-container">
                   <a href="/register">
                     <button className="comic-brutal-button">
