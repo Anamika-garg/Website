@@ -21,7 +21,7 @@ const teamData = [
   // { id: 11, name: 'Aayushi Singh', position: 'Coordinator', team: 'Technical', imageUrl: 'https://res.cloudinary.com/deysvolet/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1762849590/Screenshot_2025-11-11_135603_igm8nk.png', socials: { linkedin: 'https://www.linkedin.com/in/aayushi-singhhh/', twitter: 'https://x.com/AayushiSin39314', instagram: 'https://www.instagram.com/wakeupsinghhh' }},
   { id: 12, name: 'Aashna Sharma', position: 'Coordinator', team: 'Technical', imageUrl: 'https://res.cloudinary.com/deysvolet/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1762849297/Screenshot_2025-11-11_135054_udmjrh.png', socials: { linkedin: 'https://www.linkedin.com/in/aashna-sharma-20261a35b/', twitter: 'https://x.com/aashnash777', instagram: 'https://www.instagram.com/sh.a7i' }},
   { id: 13, name: 'Purva Mehta', position: 'Core', team: 'Technical', imageUrl: 'https://res.cloudinary.com/deysvolet/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1762848495/IMG20250704123946_2_emg7xs.jpg', socials: { linkedin: 'https://www.linkedin.com/in/purva-mehta-670b53375', twitter: 'https://x.com/PurvaMehta2007', instagram: 'https://www.instagram.com/purvamehta_01' }},
-  { id: 14, name: 'Ishanvi Srivastava', position: 'Lead', team: 'Technical', imageUrl: '/Screenshot 2026-06-24 212607.png', socials: { linkedin: 'https://www.linkedin.com/in/ishanvi-srivastava-16i', twitter: 'https://x.com/ishanvisri16', instagram: 'https://www.instagram.com/silvermistt.16' }},
+  { id: 14, name: 'Ishanvi Srivastava', position: 'Lead', team: 'Technical', imageUrl: '/ishh.jpeg', imageStyle: { transform: 'scale(1.3) translateY(-8px)' }, socials: { linkedin: 'https://www.linkedin.com/in/ishanvi-srivastava-16i', twitter: 'https://x.com/ishanvisri16', instagram: 'https://www.instagram.com/silvermistt.16' }},
   { id: 15, name: 'Ishita Sati', position: 'Coordinator', team: 'Technical', imageUrl: '/IMG-20260404-WA0108.jpg', socials: { linkedin: 'https://www.linkedin.com/in/ishita-s-91683a32b', twitter: '', instagram: 'https://www.instagram.com/is_hi274828' }},
   // { id: 16, name: 'Tanisha', position: 'Coordinator', team: 'Technical', imageUrl: 'https://res.cloudinary.com/deysvolet/image/upload/w_1000,c_fill,ar_1:1,g_auto,r_max,bo_10px_solid_rgb:F2AF13,b_rgb:262c35/v1763191229/Screenshot_2025-11-15_124816_tyxh6z.png', socials: { linkedin: 'https://www.linkedin.com/in/tanisha-272076313/', twitter: 'https://x.com/Techi_tan_', instagram: 'https://www.instagram.com/ta_nisha_t' }},
   { id: 17, name: 'Amna Sehgal', position: 'Coordinator', team: 'Technical', imageUrl: '/WhatsApp Image 2026-06-29 at 14.12.37.jpeg', socials: { linkedin: 'https://www.linkedin.com/in/amnasehgal/', twitter: 'https://x.com/amnasehgal211', instagram: 'https://www.instagram.com/amnasehgall' }},
@@ -127,6 +127,7 @@ const groupTeamByPosition = (team) => {
 const TeamMemberCard = ({ member }) => {
   const cardRef = useRef(null);
   const [style, setStyle] = useState({});
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleMouseMove = (e) => {
     if (!cardRef.current) return;
@@ -149,6 +150,7 @@ const TeamMemberCard = ({ member }) => {
     setStyle({
       transform: 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)',
     });
+    setIsHovered(false);
   };
 
   return (
@@ -157,15 +159,25 @@ const TeamMemberCard = ({ member }) => {
       className="group relative w-full max-w-xs rounded-2xl border border-white/10 bg-white/[0.01] hover:bg-white/[0.03] p-6 text-center shadow-lg backdrop-blur-sm transition-all duration-300 ease-out [transform-style:preserve-3d] hover:border-amber-500/30 spotlight-card"
       style={style}
       onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={handleMouseLeave}
     >
       <div className="relative [transform-style:preserve-3d]">
-        <img
-          src={member.imageUrl}
-          alt={`Profile of ${member.name}`}
-          className="mx-auto h-32 w-32 rounded-full border-2 border-white/10 object-cover shadow-md transition-all duration-300 group-hover:border-amber-400 group-hover:scale-105 [transform:translateZ(40px)]"
-          onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/128x128/1e293b/FFFFFF?text=Image'; }}
-        />
+        <div className="mx-auto h-32 w-32 rounded-full border-2 border-white/10 overflow-hidden shadow-md transition-all duration-300 group-hover:border-amber-400 [transform:translateZ(40px)]">
+          <img
+            src={member.imageUrl}
+            alt={`Profile of ${member.name}`}
+            className="h-full w-full object-cover transition-all duration-300"
+            style={{
+              ...member.imageStyle,
+              transform: isHovered
+                ? `${member.imageStyle?.transform || 'scale(1)'} scale(1.05)`
+                : (member.imageStyle?.transform || 'scale(1)'),
+              transition: 'transform 0.3s ease-out',
+            }}
+            onError={(e) => { e.target.onerror = null; e.target.src='https://placehold.co/128x128/1e293b/FFFFFF?text=Image'; }}
+          />
+        </div>
       </div>
       <h3 className="font-display mt-5 text-xl font-bold text-white [transform:translateZ(30px)] group-hover:text-amber-300 transition-colors duration-300">{member.name}</h3>
       <p className="mt-1 text-sm font-medium text-amber-400/80 [transform:translateZ(20px)]">{member.position}</p>
