@@ -65,7 +65,7 @@ const TeamGallery = () => {
           >
             <div className="rounded-2xl overflow-hidden border-4 border-white/10">
               <img 
-                src={groupPhotoUrl} 
+                src="WhatsApp Image 2026-09-01 at 22.05.35.jpeg"
                 alt="Our team" 
                 className="w-full h-auto object-cover opacity-90 mx-auto" 
               />
