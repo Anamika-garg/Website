@@ -11,7 +11,7 @@ const Vibeathon = () => {
     seconds: 0
   });
 
-  const [registrationCount, setRegistrationCount] = useState(0); 
+  const [registrationCount, setRegistrationCount] = useState(0);
 
 
   useEffect(() => {
@@ -154,6 +154,10 @@ const Vibeathon = () => {
                   <span className="text-[10px] uppercase tracking-[0.2em] text-slate-400 font-semibold">
                     Women already registered
                   </span>
+                </div>
+                <div className="flex items-center gap-2 text-sm text-amber-400 font-medium">
+                  <span></span>
+                  <span>Team Size: 2–4 Members</span>
                 </div>
 
                 <div className="comic-brutal-button-container">
