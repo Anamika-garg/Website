@@ -113,7 +113,7 @@ const Vibeathon = () => {
                 className="text-lg text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
                 variants={childVariants}
               >
-                A women-focused SheVibes ideathon where fresh ideas meet
+                A women-focused SheVibes Vibeathon where fresh ideas meet
                 technology, creativity, and a community of women builders.
               </motion.p>
 

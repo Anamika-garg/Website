@@ -148,7 +148,7 @@ const RoundItem = ({ round, index }) => {
 const RoundsTimeline = () => {
   const rounds = [
     {
-      title: "Round 1: PPT and Idea Submission Round",
+      title: "Round 1: The Vision",
       date: "PPT + Idea Submission",
       description: `Submit your PPT and idea description.
 
@@ -158,7 +158,7 @@ Selected teams will move forward to the Online Mentorship Round.`,
     },
 
     {
-      title: "Round 2: Online Mentorship Round",
+      title: "Round 2: The Proof",
       subtitle: "Online",
       date: "Online Mentorship",
       description: `Shortlisted teams will present their ideas to mentors.
@@ -167,10 +167,10 @@ You’ll receive feedback, guidance, and an opportunity to refine your concept b
     },
 
     {
-      title: "Round 3: Offline Final Round",
+      title: "Round 3: The Build",
       subtitle: "Offline",
-      date: "IGDTUW",
-      description: `The Grand Finale will be held offline at IGDTUW.
+      date: "To be Announced...",
+      description: `The Grand Finale: To be Announced.
 
 Shortlisted teams will get the opportunity to present their refined ideas and take their concepts to the next level.`,
     },
