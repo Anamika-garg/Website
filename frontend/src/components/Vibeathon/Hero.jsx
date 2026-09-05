@@ -15,7 +15,7 @@ const Vibeathon = () => {
 
 
   useEffect(() => {
-    const registrationDeadline = new Date('2026-02-10T23:59:59').getTime();
+    const registrationDeadline = new Date('2026-09-16T23:59:59+05:30').getTime();
 
     const calculateTimeLeft = () => {
       const now = new Date().getTime();
@@ -113,33 +113,58 @@ const Vibeathon = () => {
                 className="text-lg text-slate-300 mb-8 max-w-3xl mx-auto leading-relaxed font-light"
                 variants={childVariants}
               >
-                A women-focused SheVibes Vibeathon where fresh ideas meet
+                A women-focused SheVibes vibeathon where fresh ideas meet
                 technology, creativity, and a community of women builders.
               </motion.p>
 
-              {/* COUNTDOWN TIMER */}
-              <motion.div variants={childVariants} className="flex justify-center items-center gap-3 my-8">
-                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
-                  <span className="text-2xl font-black text-white">{timeLeft.days === 0 ? "S" : timeLeft.days}</span>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Days</span>
-                </div>
-                <span className="text-lg font-bold text-slate-500">:</span>
-                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
-                  <span className="text-2xl font-black text-white">{timeLeft.hours === 0 ? "O" : timeLeft.hours}</span>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Hours</span>
-                </div>
-                <span className="text-lg font-bold text-slate-500">:</span>
-                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
-                  <span className="text-2xl font-black text-white">{timeLeft.minutes === 0 ? "O" : timeLeft.minutes}</span>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Mins</span>
-                </div>
-                <span className="text-lg font-bold text-slate-500">:</span>
-                <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
-                  <span className="text-2xl font-black text-white">{timeLeft.seconds === 0 ? "N" : timeLeft.seconds}</span>
-                  <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">Secs</span>
-                </div>
-              </motion.div>
+{/* COUNTDOWN TIMER */}
 
+<motion.div
+  variants={childVariants}
+  className="flex justify-center items-center gap-3 my-8"
+>
+  <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+    <span className="text-2xl font-black text-white">
+      {String(timeLeft.days).padStart(2, "0")}
+    </span>
+    <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">
+      Days
+    </span>
+  </div>
+
+  <span className="text-lg font-bold text-slate-500">:</span>
+
+  <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+    <span className="text-2xl font-black text-white">
+      {String(timeLeft.hours).padStart(2, "0")}
+    </span>
+    <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">
+      Hours
+    </span>
+  </div>
+
+  <span className="text-lg font-bold text-slate-500">:</span>
+
+  <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+    <span className="text-2xl font-black text-white">
+      {String(timeLeft.minutes).padStart(2, "0")}
+    </span>
+    <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">
+      Mins
+    </span>
+  </div>
+
+  <span className="text-lg font-bold text-slate-500">:</span>
+
+  <div className="flex flex-col items-center bg-white/[0.04] border border-white/10 px-4 py-2.5 rounded-2xl min-w-[65px] backdrop-blur-md">
+    <span className="text-2xl font-black text-white">
+      {String(timeLeft.seconds).padStart(2, "0")}
+    </span>
+    <span className="text-[9px] uppercase font-bold tracking-widest text-slate-400 mt-1">
+      Secs
+    </span>
+  </div>
+</motion.div>
               {/* REGISTRATION */}
               <motion.div
                 className="flex flex-col items-center gap-4 mb-8"
