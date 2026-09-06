@@ -170,7 +170,7 @@ const Hero = () => {
               {/* Learn More (desktop) */}
               <motion.a
                 variants={fadeInUp}
-                href="#learn-more"
+                href="#ps"
                 className="text-xs uppercase tracking-[0.2em] text-slate-500 hover:text-white transition-colors mt-2 inline-flex items-center gap-2"
                 whileHover={{ x: 4 }}
               >
