@@ -53,7 +53,7 @@ const Navbar = () => {
               <Link
                 key={item.label}
                 to={item.path}
-                className={`relative font-sans text-[10px] font-bold tracking-widest px-4 py-2.5 uppercase transition-all duration-300 rounded-full ${isActive ? 'text-white' : 'text-slate-300 hover:text-white'
+                className={`relative font-sans text-[12px] font-bold tracking-widest px-4 py-2.5 uppercase transition-all duration-300 rounded-full ${isActive ? 'text-white' : 'text-slate-300 hover:text-white'
                   }`}
               >
                 {isActive && (
@@ -73,7 +73,7 @@ const Navbar = () => {
         <div className="hidden lg:block">
           <Link
             to="/vibeathon"
-            className="vibeathon-btn uppercase text-[10px] font-extrabold tracking-widest whitespace-nowrap"
+            className="vibeathon-btn uppercase text-[12px] font-extrabold tracking-widest whitespace-nowrap"
           >
             <span className="vibeathon-span">
               SheVibes

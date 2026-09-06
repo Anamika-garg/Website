@@ -11,33 +11,42 @@ const handleCardMouseMove = (e) => {
 
 const Prizes = () => {
   const tests = [
-    {
-      id: 1,
-      name: "🌐 Top 6 → Web3 Community",
-      x_id: "Top 6",
-      rank: "Community Opportunity",
-      quote:
-        "The Top 6 teams get an opportunity to enter our Web3 community.\n\nContinue learning, building, and collaborating beyond SheVibes.",
-    },
+  {
+    id: 1,
+    name: "🌐 Top 6 → Web3 Community",
+    x_id: "Web3 Community",
+    rank: "Top 6 Winners",
+    quote:
+      "The Top 6 teams get an opportunity to join our Web3 community.\n\nKeep learning, building, and collaborating with fellow Web3 enthusiasts.",
+  },
 
-    {
-      id: 2,
-      name: "🎁 Goodies & Recognition",
-      x_id: "Goodies + Recognition",
-      rank: "For Your Ideas",
-      quote:
-        "Walk away with exciting goodies and recognition for your ideas and efforts.",
-    },
+  {
+    id: 2,
+    name: "🧑‍💻 Top 6 → Mentorship",
+    x_id: "Mentorship Opportunity",
+    rank: "Top 6 Winners",
+    quote:
+      "The Top 6 teams get an exclusive mentorship opportunity.\n\nLearn from experienced mentors, get guidance, and take your ideas to the next level.",
+  },
 
-    {
-      id: 3,
-      name: "🚀 Keep Building",
-      x_id: "Keep Building",
-      rank: "Beyond SheVibes",
-      quote:
-        "Connect with fellow builders, explore Web3, and be part of a community that keeps your ideas moving.",
-    },
-  ];
+  {
+    id: 3,
+    name: "🎁 Top 3 → Swags + Courses",
+    x_id: "Swags + Free Courses",
+    rank: "Top 3 Winners",
+    quote:
+      "The Top 3 teams will win exciting swags along with access to free courses.\n\nKeep building, keep learning, and level up your skills.",
+  },
+
+  {
+    id: 4,
+    name: "💰 Prize Pool → ₹50K",
+    x_id: "₹50K Prize Pool",
+    rank: "Total Prize Pool",
+    quote:
+      "A total prize pool of ₹50,000 is up for grabs.\n\nBring your best ideas, build something impactful, and compete for the win.",
+  },
+];
 
   /* Clone items for infinite loop */
   const extendedTests = [

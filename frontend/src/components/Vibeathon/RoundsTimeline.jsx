@@ -149,7 +149,7 @@ const RoundsTimeline = () => {
   const rounds = [
     {
       title: "Round 1: The Vision",
-      date: "PPT + Idea Submission",
+      date: "7 September",
       description: `Submit your PPT and idea description.
 
 The submission will focus on your idea, problem statement, proposed solution, and approach.
@@ -160,19 +160,23 @@ Selected teams will move forward to the Online Mentorship Round.`,
     {
       title: "Round 2: The Proof",
       subtitle: "Online",
-      date: "Online Mentorship",
-      description: `Shortlisted teams will present their ideas to mentors.
+      date: "19 September",
+      description: `Shortlisted teams will receive a challenge to solve.
 
-You’ll receive feedback, guidance, and an opportunity to refine your concept before the finale.`,
+Put your ideas, skills, and creativity to the test as you work on the challenge before the finale.
+`,
     },
 
     {
       title: "Round 3: The Build",
       subtitle: "Offline",
-      date: "To be Announced...",
+      date: "23 September",
       description: `The Grand Finale: To be Announced.
 
-Shortlisted teams will get the opportunity to present their refined ideas and take their concepts to the next level.`,
+Shortlisted teams will take on an 8-hour Vibeathon challenge.
+
+Build, experiment, and bring your ideas to life as you race against the clock.
+`,
     },
   ];
 
